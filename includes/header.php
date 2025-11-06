@@ -74,6 +74,17 @@ window.cookieTranslations = {
                         <?php endif; ?>
                     </div>
                 </div>
+                <!-- Mobile Language Buttons -->
+                <div class="mobile-language-buttons">
+                    <a href="<?php echo $lang->getLanguageUrl('it'); ?>" class="mobile-lang-btn <?php echo $lang->getCurrentLanguage() === 'it' ? 'active' : ''; ?>">
+                        <img src="media/flag-it.svg" alt="Italiano" class="flag-icon">
+                        <span>IT</span>
+                    </a>
+                    <a href="<?php echo $lang->getLanguageUrl('en'); ?>" class="mobile-lang-btn <?php echo $lang->getCurrentLanguage() === 'en' ? 'active' : ''; ?>">
+                        <img src="media/flag-en.svg" alt="English" class="flag-icon">
+                        <span>EN</span>
+                    </a>
+                </div>
             </li>
         </ul>
         <div class="hamburger">
