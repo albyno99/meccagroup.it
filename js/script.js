@@ -33,9 +33,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 const newLang = this.querySelector('span').textContent.toLowerCase();
                 localStorage.setItem('userLangPreference', newLang);
                 localStorage.setItem('langChangedByUser', 'true');
+                
+                // On mobile, close the menu after language selection
+                if (window.innerWidth <= 768) {
+                    const hamburger = document.querySelector('.hamburger');
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (hamburger && navMenu) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                }
+                
                 // Let the default link behavior handle the redirect
             });
         });
+
+        // Mobile language switcher toggle
+        if (window.innerWidth <= 768) {
+            const currentLangElement = document.querySelector('.current-lang');
+            const languageDropdown = document.querySelector('.language-dropdown');
+            
+            if (currentLangElement && languageDropdown) {
+                // On mobile, make the language section more prominent
+                currentLangElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    languageDropdown.style.display = languageDropdown.style.display === 'none' ? 'block' : 'none';
+                });
+            }
+        }
     }
 
     // Navbar scroll effect
@@ -94,6 +119,53 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
+    });
+
+    // Service gallery interaction
+    const serviceGalleries = document.querySelectorAll('.service-gallery');
+    serviceGalleries.forEach(gallery => {
+        const thumbnails = gallery.querySelectorAll('.gallery-thumb');
+        const mainImageContainer = gallery.closest('.service-image-container');
+        const mainImage = mainImageContainer.querySelector('.service-main-image');
+        
+        if (thumbnails.length > 0 && mainImage) {
+            thumbnails.forEach((thumb, index) => {
+                thumb.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    
+                    // Change main image with fade effect
+                    mainImage.style.opacity = '0.3';
+                    
+                    setTimeout(() => {
+                        mainImage.src = this.src;
+                        mainImage.alt = this.alt;
+                        mainImage.style.opacity = '1';
+                    }, 150);
+                });
+                
+                // Add hover effect
+                thumb.addEventListener('mouseenter', function() {
+                    this.style.opacity = '1';
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                thumb.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.opacity = '0.8';
+                    }
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Set first thumbnail as active by default
+            if (thumbnails[0]) {
+                thumbnails[0].classList.add('active');
+            }
+        }
     });
 
     // Instagram cards loading effect
@@ -229,7 +301,30 @@ function showNotification(message, type = 'info') {
     }, 4000);
 }
 
-// Parallax effect for hero section
+    // Handle window resize for responsive adjustments
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Reset mobile menu state on resize
+            if (window.innerWidth > 768) {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.nav-menu');
+                if (hamburger && navMenu) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+                
+                // Reset language dropdown state
+                const languageDropdown = document.querySelector('.language-dropdown');
+                if (languageDropdown) {
+                    languageDropdown.style.display = '';
+                }
+            }
+        }, 250);
+    });
+
+    // Parallax effect for hero section
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const heroImage = document.querySelector('.hero-image');
