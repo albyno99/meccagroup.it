@@ -2313,6 +2313,20 @@ body {
     margin-top: auto;
 }
 
+/* Map section button styling */
+.map-section .btn-outline {
+    background: transparent;
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.map-section .btn-outline:hover {
+    background: var(--primary-red);
+    color: var(--white);
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
 /* FAQ Section */
 .faq-section {
     padding: var(--spacing-32) 0;
@@ -2601,6 +2615,7 @@ body {
     height: 400px;
     border: none;
     border-radius: 16px;
+    display: block;
 }
 
 .location-info {
