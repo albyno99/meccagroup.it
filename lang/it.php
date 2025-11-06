@@ -12,7 +12,7 @@ return [
     // Home page
     'hero_title_main' => 'MECCA',
     'hero_title_sub' => 'Group',
-    'hero_subtitle' => 'Trasporti specializzati e materiali edili di qualità dal 1970',
+    'hero_subtitle' => 'Trasporti specializzati e materiali edili di qualità dal 1968',
     'hero_cta_services' => 'I nostri servizi',
     'hero_cta_quote' => 'Richiedi preventivo',
     
@@ -45,7 +45,7 @@ return [
     'cta_phone' => '+39 331 625 47 83',
     
     // Footer
-    'footer_tagline' => 'Trasporti specializzati e materiali edili di qualità dal 1970',
+    'footer_tagline' => 'Trasporti specializzati e materiali edili di qualità dal 1968',
     'footer_contact_title' => 'Contatti',
     'footer_services_title' => 'Servizi',
     'footer_hours_title' => 'Orari',
@@ -58,7 +58,7 @@ return [
     'about_page_title' => 'Chi Siamo',
     'about_page_subtitle' => 'La storia di Mecca Group, un\'azienda familiare che da oltre 50 anni offre servizi di trasporto e materiali edili di qualità',
     'about_story_title' => 'La Nostra Storia',
-    'about_story_p1' => 'Mecca Group nasce dalla passione e dalla dedizione di una famiglia che ha fatto del trasporto e dei materiali edili la propria missione. Fondata negli anni \'70, la nostra azienda ha sempre puntato su un prodotto di alto livello, caratterizzato dalla scelta di professionisti accreditati e dall\'utilizzo di personale altamente specializzato.',
+    'about_story_p1' => 'Mecca Group nasce dalla passione e dalla dedizione di una famiglia che ha fatto del trasporto e dei materiali edili la propria missione. Fondata negli anni \'60, la nostra azienda ha sempre puntato su un prodotto di alto livello, caratterizzato dalla scelta di professionisti accreditati e dall\'utilizzo di personale altamente specializzato.',
     'about_story_p2' => 'Nel corso degli anni, ci siamo espansi creando due divisioni specializzate: <strong>Mecca Autotrasporti</strong> per il trasporto di merci voluminose e prodotti siderurgici, e <strong>Mecca Materiali Edili</strong> per la fornitura di materiali per l\'edilizia.',
     'about_story_p3' => 'La nostra crescita è stata guidata dalla continua ricerca dell\'eccellenza, investendo nelle migliori attrezzature e tecnologie, e soprattutto nella formazione del nostro team. Oggi, Mecca Group è sinonimo di affidabilità e qualità nel settore dei trasporti e dei materiali edili in tutto il Piemonte e oltre.',
     'about_values_title' => 'I Nostri Valori',
@@ -165,6 +165,7 @@ return [
     'contact_phone_title' => 'Telefono',
     'contact_email_title' => 'Email',
     'contact_hours_title' => 'Orari',
+    'contact_social_title' => 'Seguici sui Social',
     'contact_form_title' => 'Richiedi un Preventivo',
     'contact_form_subtitle' => 'Compila il modulo per ricevere un preventivo dettagliato e gratuito',
     'contact_form_name' => 'Nome',
@@ -201,7 +202,7 @@ return [
     
     // Meta tags
     'meta_description_home' => 'Mecca Group - Trasporti specializzati e materiali edili di qualità. Oltre 50 anni di esperienza in autotrasporti, prodotti siderurgici e materiali per l\'edilizia.',
-    'meta_description_about' => 'Scopri la storia di Mecca Group, azienda familiare specializzata in trasporti e materiali edili dal 1970. Qualità, affidabilità e professionalità.',
+    'meta_description_about' => 'Scopri la storia di Mecca Group, azienda familiare specializzata in trasporti e materiali edili dal 1969. Qualità, affidabilità e professionalità.',
     'meta_description_services' => 'Servizi Mecca Group: autotrasporti specializzati, materiali edili, trasporti internazionali e noleggio attrezzature. Soluzioni complete per l\'edilizia.',
     'meta_description_contact' => 'Contatta Mecca Group per preventivi gratuiti. Sede a Cantarana (AT), servizi di trasporto e materiali edili in tutto il Piemonte e Italia.',
     

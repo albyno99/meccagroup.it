@@ -75,7 +75,11 @@
     <section class="instagram-section">
         <div class="container">
             <h2 class="section-title"><?php echo t('instagram_title'); ?></h2>
-            <p class="section-subtitle">@meccagroup_</p>
+            <p class="section-subtitle">
+                <a href="https://www.instagram.com/meccagroup_/" target="_blank" class="instagram-link">
+                    <span class="instagram-icon"></span>@meccagroup_
+                </a>
+            </p>
             
             <div class="instagram-grid">
                 <!-- La Storia -->

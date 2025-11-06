@@ -12,7 +12,7 @@ return [
     // Home page
     'hero_title_main' => 'MECCA',
     'hero_title_sub' => 'Group',
-    'hero_subtitle' => 'Specialized transport and quality building materials since 1970',
+    'hero_subtitle' => 'Specialized transport and quality building materials since 1968',
     'hero_cta_services' => 'Our services',
     'hero_cta_quote' => 'Request quote',
     
@@ -45,7 +45,7 @@ return [
     'cta_phone' => '+39 331 625 47 83',
     
     // Footer
-    'footer_tagline' => 'Specialized transport and quality building materials since 1970',
+    'footer_tagline' => 'Specialized transport and quality building materials since 1968',
     'footer_contact_title' => 'Contact',
     'footer_services_title' => 'Services',
     'footer_hours_title' => 'Hours',
@@ -58,7 +58,7 @@ return [
     'about_page_title' => 'About Us',
     'about_page_subtitle' => 'The story of Mecca Group, a family business that has been providing quality transport and building materials services for over 50 years',
     'about_story_title' => 'Our Story',
-    'about_story_p1' => 'Mecca Group was born from the passion and dedication of a family that has made transport and building materials their mission. Founded in the 1970s, our company has always focused on high-level products, characterized by the choice of accredited professionals and the use of highly specialized personnel.',
+    'about_story_p1' => 'Mecca Group was born from the passion and dedication of a family that has made transport and building materials their mission. Founded in the 1960s, our company has always focused on high-level products, characterized by the choice of accredited professionals and the use of highly specialized personnel.',
     'about_story_p2' => 'Over the years, we have expanded by creating two specialized divisions: <strong>Mecca Transportation</strong> for the transport of bulky goods and steel products, and <strong>Mecca Building Materials</strong> for the supply of construction materials.',
     'about_story_p3' => 'Our growth has been guided by the continuous pursuit of excellence, investing in the best equipment and technologies, and above all in training our team. Today, Mecca Group is synonymous with reliability and quality in the transport and building materials sector throughout Piedmont and beyond.',
     'about_values_title' => 'Our Values',
@@ -165,6 +165,7 @@ return [
     'contact_phone_title' => 'Phone',
     'contact_email_title' => 'Email',
     'contact_hours_title' => 'Hours',
+    'contact_social_title' => 'Follow us on Social',
     'contact_form_title' => 'Request a Quote',
     'contact_form_subtitle' => 'Fill out the form to receive a detailed and free quote',
     'contact_form_name' => 'Name',
@@ -201,7 +202,7 @@ return [
     
     // Meta tags
     'meta_description_home' => 'Mecca Group - Specialized transport and quality building materials. Over 50 years of experience in transportation, steel products and construction materials.',
-    'meta_description_about' => 'Discover the story of Mecca Group, a family business specialized in transport and building materials since 1970. Quality, reliability and professionalism.',
+    'meta_description_about' => 'Discover the story of Mecca Group, a family business specialized in transport and building materials since 1968. Quality, reliability and professionalism.',
     'meta_description_services' => 'Mecca Group Services: specialized transportation, building materials, international transport and equipment rental. Complete construction solutions.',
     'meta_description_contact' => 'Contact Mecca Group for free quotes. Headquarters in Cantarana (AT), transport and building materials services throughout Piedmont and Italy.',
     

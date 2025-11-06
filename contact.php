@@ -58,6 +58,18 @@
                         <strong><?php echo t('hours_sunday'); ?>:</strong> <?php echo t('hours_closed'); ?>
                     </p>
                 </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3><?php echo t('contact_social_title'); ?></h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/people/Mecca-Group/61573993564211/?_rdr" target="_blank" class="social-link">
+                            <span class="facebook-icon"></span>Facebook
+                        </a>
+                        <a href="https://www.instagram.com/meccagroup_/" target="_blank" class="social-link">
+                            <span class="instagram-icon"></span>Instagram
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

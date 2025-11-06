@@ -6,7 +6,12 @@
                 <img src="media/mecca_logo_white.png" alt="Mecca Group" class="footer-logo">
                 <p><?php echo t('footer_tagline'); ?></p>
                 <div class="social-links">
-                    <a href="https://instagram.com/meccagroup_" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/people/Mecca-Group/61573993564211/?_rdr" target="_blank" class="social-link">
+                        <span class="facebook-icon"></span>Facebook
+                    </a>
+                    <a href="https://www.instagram.com/meccagroup_/" target="_blank" class="social-link">
+                        <span class="instagram-icon"></span>Instagram
+                    </a>
                 </div>
             </div>
             
