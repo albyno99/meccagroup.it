@@ -274,8 +274,12 @@
                 <div class="cta-buttons">
                     <a href="<?php echo $lang->getPageUrl('contact'); ?>" class="btn btn-primary"><?php echo t('services_cta_quote'); ?></a>
                     <a href="tel:+393316254783" class="btn btn-outline">
-                        <span class="phone-icon">📞</span>
-                        <?php echo t('cta_phone'); ?>
+                        <span class="phone-icon-white"></span>
+                        +39 331 625 47 83
+                    </a>
+                    <a href="tel:+390141943008" class="btn btn-outline">
+                        <span class="phone-icon-white"></span>
+                        +39 0141 943008
                     </a>
                 </div>
             </div>
