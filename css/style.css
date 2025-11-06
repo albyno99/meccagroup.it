@@ -1750,7 +1750,12 @@ body {
     cursor: pointer;
     font-size: var(--font-size-sm);
     color: var(--gray-600);
-    line-height: 1.6;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -1758,8 +1763,8 @@ body {
 }
 
 .checkmark {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border: 2px solid var(--gray-300);
     border-radius: var(--radius-sm);
     display: flex;
@@ -1767,7 +1772,7 @@ body {
     justify-content: center;
     transition: all var(--transition-fast);
     flex-shrink: 0;
-    margin-top: 0;
+    margin-top: 2px;
     background: var(--white);
 }
 
@@ -1786,6 +1791,7 @@ body {
 .checkbox-label a {
     color: var(--primary-red);
     text-decoration: none;
+    word-break: break-word;
 }
 
 .checkbox-label a:hover {
@@ -1796,7 +1802,7 @@ body {
     justify-self: center;
     min-width: 200px;
     position: relative;
-    margin-top: var(--spacing-6);
+    margin-top: var(--spacing-4);
     background: var(--primary-red) !important;
     color: var(--white) !important;
     border-color: var(--primary-red) !important;
@@ -2045,19 +2051,19 @@ body {
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
 }
 
 .form-group {
-    margin-bottom: 30px;
+    margin-bottom: var(--spacing-4);
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-2);
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--gray-700);
 }
 
 .form-group input,
@@ -2330,7 +2336,7 @@ body {
 
     .form-row {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: var(--spacing-4);
     }
 
     .map-container {
@@ -2354,6 +2360,10 @@ body {
     .error-actions .btn {
         width: 100%;
         max-width: 300px;
+    }
+
+    .checkbox-label {
+        font-size: var(--font-size-xs);
     }
 }
 
