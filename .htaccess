@@ -1,0 +1,36 @@
+# Basic .htaccess for development environment
+# Enable mod_rewrite
+RewriteEngine On
+
+# Custom error pages
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+
+# Basic MIME types
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType image/webp .webp
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
+</IfModule>
+
+# Hide sensitive files
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+<Files "*.log">
+    Require all denied
+</Files>
+
+<Files "contact_info.txt">
+    Require all denied
+</Files>
+
+<Files "iframes_homepage.txt">
+    Require all denied
+</Files>
+
+# Disable directory browsing
+Options -Indexes

@@ -1,0 +1,47 @@
+User-agent: *
+
+# Allow main pages and resources
+Allow: /
+Allow: /index.php
+Allow: /about-us.php
+Allow: /services.php
+Allow: /contact.php
+Allow: /css/
+Allow: /js/
+Allow: /media/
+
+# Allow language-specific URLs
+Allow: /it/
+Allow: /en/
+Allow: /it/*
+Allow: /en/*
+
+# Block access to system directories and files
+Disallow: /includes/
+Disallow: /lang/
+Disallow: /logs/
+Disallow: /.git/
+Disallow: /*.log
+Disallow: /process-contact.php
+Disallow: /404.php
+Disallow: /500.php
+Disallow: /.htaccess
+Disallow: /README.md
+Disallow: /composer.*
+Disallow: /package*.json
+
+# Allow CSS, JS and media files for rendering
+Allow: /css/*.css
+Allow: /js/*.js
+Allow: /media/*.jpg
+Allow: /media/*.jpeg
+Allow: /media/*.png
+Allow: /media/*.gif
+Allow: /media/*.svg
+Allow: /media/*.webp
+
+# Sitemap location
+Sitemap: https://www.meccagroup.it/sitemap.xml
+
+# Crawl-delay for respect
+Crawl-delay: 1

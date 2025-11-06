@@ -18,6 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Language switcher enhancement
+    const languageSwitcher = document.querySelector('.language-switcher');
+    if (languageSwitcher) {
+        // Store user's language preference in localStorage
+        const currentLang = document.querySelector('.current-lang').textContent.toLowerCase();
+        if (!localStorage.getItem('userLangPreference')) {
+            localStorage.setItem('userLangPreference', currentLang);
+        }
+        
+        // Handle language change clicks
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function(e) {
+                const newLang = this.querySelector('span').textContent.toLowerCase();
+                localStorage.setItem('userLangPreference', newLang);
+                localStorage.setItem('langChangedByUser', 'true');
+                // Let the default link behavior handle the redirect
+            });
+        });
+    }
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     if (navbar) {
