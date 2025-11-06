@@ -13,9 +13,13 @@
             <div class="footer-section">
                 <h4><?php echo t('footer_contact_title'); ?></h4>
                 <div class="contact-info">
-                    <p>📍 Viale Cavalieri di Vittorio Veneto, 3<br>14010 Cantarana (AT), Italia</p>
-                    <p>📞 +39 331 625 47 83 / 0141 943008</p>
-                    <p>✉️ info@meccagroup.it</p>
+                    <p><span class="location-icon"></span>Viale Cavalieri di Vittorio Veneto, 3<br>14010 Cantarana (AT), Italia</p>
+                    <p>
+                        <span class="phone-icon-white"></span>
+                        <a href="tel:+393316254783" style="color: inherit; text-decoration: none;">+39 331 625 47 83</a> / 
+                        <a href="tel:+390141943008" style="color: inherit; text-decoration: none;">+39 0141 943008</a>
+                    </p>
+                    <p><span class="email-icon"></span><a href="mailto:info@meccagroup.it" style="color: inherit; text-decoration: none;">info@meccagroup.it</a></p>
                 </div>
             </div>
             

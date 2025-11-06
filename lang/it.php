@@ -29,6 +29,7 @@ return [
     'instagram_title' => 'SEGUICI SU INSTAGRAM',
     'instagram_story' => 'LA STORIA',
     'instagram_services' => 'I NOSTRI SERVIZI',
+    'instagram_post3' => 'LE NOSTRE NOVITÀ',
     'instagram_hours' => 'Orari di apertura',
     'hours_weekdays' => 'Dal Lunedì al Venerdì',
     'hours_weekdays_time' => '07:30 - 12:00 / 13:30 - 18:00',

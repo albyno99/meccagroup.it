@@ -30,20 +30,20 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="contact-icon">📍</div>
+                    <div class="contact-icon"><span class="location-icon"></span></div>
                     <h3><?php echo t('contact_address_title'); ?></h3>
                     <p>Viale Cavalieri di Vittorio Veneto, 3<br>14010 Cantarana (AT), Italia</p>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">📞</div>
+                    <div class="contact-icon"><span class="phone-icon-white"></span></div>
                     <h3><?php echo t('contact_phone_title'); ?></h3>
                     <p>
                         <a href="tel:+393316254783">+39 331 625 47 83</a><br>
-                        <a href="tel:+390141943008">0141 943008</a>
+                        <a href="tel:+390141943008">+39 0141 943008</a>
                     </p>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
+                    <div class="contact-icon"><span class="email-icon"></span></div>
                     <h3><?php echo t('contact_email_title'); ?></h3>
                     <p>
                         <a href="mailto:info@meccagroup.it">info@meccagroup.it</a>

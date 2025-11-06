@@ -29,6 +29,7 @@ return [
     'instagram_title' => 'FOLLOW US ON INSTAGRAM',
     'instagram_story' => 'OUR STORY',
     'instagram_services' => 'OUR SERVICES',
+    'instagram_post3' => 'OUR NEWS',
     'instagram_hours' => 'Opening hours',
     'hours_weekdays' => 'Monday to Friday',
     'hours_weekdays_time' => '07:30 - 12:00 / 13:30 - 18:00',

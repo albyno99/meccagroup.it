@@ -33,7 +33,14 @@ require_once __DIR__ . '/language.php';
             <!-- Language Toggle -->
             <li class="nav-item language-toggle">
                 <div class="language-switcher">
-                    <span class="current-lang"><?php echo strtoupper($lang->getCurrentLanguage()); ?></span>
+                    <span class="current-lang">
+                        <?php if($lang->getCurrentLanguage() === 'it'): ?>
+                            <img src="media/flag-it.svg" alt="Italiano" class="flag-icon">
+                        <?php else: ?>
+                            <img src="media/flag-en.svg" alt="English" class="flag-icon">
+                        <?php endif; ?>
+                        <?php echo strtoupper($lang->getCurrentLanguage()); ?>
+                    </span>
                     <div class="language-dropdown">
                         <?php if($lang->getCurrentLanguage() === 'it'): ?>
                             <a href="<?php echo $lang->getLanguageUrl('en'); ?>" class="lang-option">

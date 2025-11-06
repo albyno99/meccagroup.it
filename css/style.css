@@ -215,6 +215,9 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
 }
 
 .current-lang:hover {
@@ -358,17 +361,19 @@ body {
 }
 
 .hero-bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
 }
 
 .hero-overlay {
@@ -640,13 +645,11 @@ body {
     background: var(--primary-red);
     border-radius: var(--radius-2xl);
     overflow: hidden;
-    aspect-ratio: 1;
     position: relative;
 }
 
 .instagram-content {
     padding: var(--spacing-6);
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -659,9 +662,16 @@ body {
 }
 
 .instagram-embed {
-    flex: 1;
     border-radius: var(--radius-lg);
     overflow: hidden;
+}
+
+.instagram-embed iframe {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 600px !important;
+    border: none !important;
+    border-radius: var(--radius-lg);
 }
 
 .opening-hours {
@@ -731,8 +741,80 @@ body {
     flex-wrap: wrap;
 }
 
+/* Icons */
 .phone-icon {
     margin-right: var(--spacing-2);
+}
+
+.phone-icon::before {
+    content: "📞";
+    color: var(--white);
+    font-style: normal;
+}
+
+.phone-icon-white {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-2);
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    vertical-align: middle;
+}
+
+.email-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-2);
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    vertical-align: middle;
+}
+
+.location-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-2);
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    vertical-align: middle;
+}
+
+.clock-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: var(--spacing-2);
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3C/svg%3E%3Cpath d='m12.5 7-1 0 0 6 5.25 3.15.75-1.23-4.5-2.67z'/%3E%3C/svg%3E") no-repeat center;
+    mask-size: contain;
+    vertical-align: middle;
+}
+
+/* Contact card icons styling */
+.contact-card .contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    color: var(--primary-red);
+}
+
+.contact-card .contact-icon .phone-icon-white,
+.contact-card .contact-icon .email-icon,
+.contact-card .contact-icon .location-icon,
+.contact-card .contact-icon .clock-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    background-color: var(--primary-red);
 }
 
 /* Footer */
@@ -864,6 +946,55 @@ body {
     align-items: center;
     overflow: hidden;
     margin-top: 80px;
+}
+
+.page-hero .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    will-change: auto;
+}
+
+.page-hero .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: relative;
+    will-change: auto;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+.page-hero .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.page-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(229, 62, 62, 0.8) 0%,
+        rgba(197, 48, 48, 0.6) 50%,
+        rgba(26, 32, 44, 0.4) 100%
+    );
+    z-index: 2;
+}
+
+/* Force disable any parallax effects */
+.page-hero *, 
+.page-hero *::before, 
+.page-hero *::after {
+    background-attachment: scroll !important;
 }
 
 .page-title {
@@ -1572,6 +1703,7 @@ body {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
 }
 
 .checkbox-label {
@@ -1924,6 +2056,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 12px;
+    margin-bottom: var(--spacing-4);
 }
 
 .checkbox-label {
@@ -1938,6 +2071,7 @@ body {
 .checkbox-label input[type="checkbox"] {
     width: auto;
     margin: 0;
+    display: none;
 }
 
 .checkmark {
@@ -1948,22 +2082,22 @@ body {
     position: relative;
     flex-shrink: 0;
     margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
+    background: var(--primary-red);
+    border-color: var(--primary-red);
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
     content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
+    color: var(--white);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
 }
 
 .submit-btn {

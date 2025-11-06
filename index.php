@@ -84,13 +84,12 @@
                         <h3><?php echo t('instagram_story'); ?></h3>
                         <div class="instagram-embed">
                             <iframe 
-                                style="position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center" 
                                 src="https://www.instagram.com/p/DIjiWztqccQ/embed/" 
                                 frameborder="0" 
                                 width="100%" 
-                                height="100%" 
                                 scrolling="no" 
-                                id="SqgVs9FLX">
+                                allowtransparency="true"
+                                style="border:none;overflow:hidden;width:100%;min-height:600px;">
                             </iframe>
                         </div>
                     </div>
@@ -102,38 +101,30 @@
                         <h3><?php echo t('instagram_services'); ?></h3>
                         <div class="instagram-embed">
                             <iframe 
-                                style="position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center" 
                                 src="https://www.instagram.com/p/DH3mawksRrG/embed/" 
                                 frameborder="0" 
                                 width="100%" 
-                                height="100%" 
                                 scrolling="no" 
-                                id="HkjjsdfKQ">
+                                allowtransparency="true"
+                                style="border:none;overflow:hidden;width:100%;min-height:600px;">
                             </iframe>
                         </div>
                     </div>
                 </div>
 
-                <!-- Orari -->
+                <!-- 3° Post Instagram -->
                 <div class="instagram-card">
                     <div class="instagram-content">
-                        <h3><?php echo t('instagram_hours'); ?></h3>
-                        <div class="opening-hours">
-                            <div class="hours-item">
-                                <span class="day"><?php echo t('hours_weekdays'); ?></span>
-                                <span class="time"><?php echo t('hours_weekdays_time'); ?></span>
-                            </div>
-                            <div class="hours-item">
-                                <span class="day"><?php echo t('hours_saturday'); ?></span>
-                                <span class="time"><?php echo t('hours_saturday_time'); ?></span>
-                            </div>
-                            <div class="hours-item">
-                                <span class="day"><?php echo t('hours_sunday'); ?></span>
-                                <span class="time"><?php echo t('hours_closed'); ?></span>
-                            </div>
-                            <div class="logo-hours">
-                                <img src="media/mecca_logo_white.png" alt="Mecca Group">
-                            </div>
+                        <h3><?php echo t('instagram_post3'); ?></h3>
+                        <div class="instagram-embed">
+                            <iframe 
+                                src="https://www.instagram.com/p/DMaY_SVMvAQ/embed/" 
+                                frameborder="0" 
+                                width="100%" 
+                                scrolling="no" 
+                                allowtransparency="true"
+                                style="border:none;overflow:hidden;width:100%;min-height:600px;">
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -150,8 +141,12 @@
                 <div class="cta-buttons">
                     <a href="<?php echo $lang->getPageUrl('contact'); ?>" class="btn btn-primary"><?php echo t('cta_contact'); ?></a>
                     <a href="tel:+393316254783" class="btn btn-outline">
-                        <span class="phone-icon">📞</span>
-                        <?php echo t('cta_phone'); ?>
+                        <span class="phone-icon-white"></span>
+                        +39 331 625 47 83
+                    </a>
+                    <a href="tel:+390141943008" class="btn btn-outline">
+                        <span class="phone-icon-white"></span>
+                        +39 0141 943008
                     </a>
                 </div>
             </div>
