@@ -190,12 +190,14 @@ body {
     box-shadow: var(--shadow-lg);
     border-radius: var(--radius-lg);
     padding: var(--spacing-2);
-    margin-top: var(--spacing-2);
+    margin-top: 0;
+    z-index: 1000;
 }
 
-.dropdown:hover .dropdown-content {
+/* Rimuoviamo la gestione CSS hover e lasciamo che JavaScript gestisca tutto */
+/* .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
 
 .dropdown-content a {
     display: flex;

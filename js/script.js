@@ -16,6 +16,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
             });
         });
+
+        // Close mobile menu when clicking on dropdown items
+        document.querySelectorAll('.dropdown-content a').forEach(dropdownLink => {
+            dropdownLink.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    }
+
+    // Dropdown menu enhancement for better UX
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    
+    if (dropdown && dropdownContent) {
+        let hoverTimeout;
+        
+        dropdown.addEventListener('mouseenter', function() {
+            clearTimeout(hoverTimeout);
+            if (window.innerWidth > 768) { // Solo su desktop
+                dropdownContent.style.display = 'block';
+            }
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) { // Solo su desktop
+                hoverTimeout = setTimeout(() => {
+                    dropdownContent.style.display = 'none';
+                }, 150); // Piccolo delay per permettere il movimento del mouse
+            }
+        });
+        
+        // Mantieni il dropdown aperto quando il mouse è sopra di esso
+        dropdownContent.addEventListener('mouseenter', function() {
+            clearTimeout(hoverTimeout);
+        });
+        
+        dropdownContent.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) { // Solo su desktop
+                hoverTimeout = setTimeout(() => {
+                    dropdownContent.style.display = 'none';
+                }, 150);
+            }
+        });
     }
 
     // Language switcher enhancement
