@@ -174,6 +174,13 @@ class LanguageManager {
         $meta .= '<meta name="author" content="Mecca Group">' . "\n";
         $meta .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n";
         
+        // Favicon tags
+        $meta .= '<link rel="icon" type="image/x-icon" href="media/mecca_logo_favicon.ico">' . "\n";
+        $meta .= '<link rel="icon" type="image/png" sizes="32x32" href="media/mecca_logo_favicon.png">' . "\n";
+        $meta .= '<link rel="icon" type="image/png" sizes="16x16" href="media/mecca_logo_favicon.png">' . "\n";
+        $meta .= '<link rel="apple-touch-icon" sizes="180x180" href="media/mecca_logo_favicon.png">' . "\n";
+        $meta .= '<link rel="manifest" href="site.webmanifest">' . "\n";
+        
         // Open Graph tags
         $meta .= '<meta property="og:title" content="' . htmlspecialchars($title) . '">' . "\n";
         $meta .= '<meta property="og:description" content="' . htmlspecialchars($description) . '">' . "\n";
