@@ -48,7 +48,8 @@ return [
     'footer_contact_title' => 'Contact',
     'footer_services_title' => 'Services',
     'footer_hours_title' => 'Hours',
-    'footer_copyright' => '© 2024 Mecca Group. All rights reserved.',
+    'footer_copyright' => '© ' . date('Y') . ' Mecca Group. All rights reserved.',
+    'footer_made_with_love' => 'Made With Love By <a href="https://michelaferraro.framer.website/" target="_blank" rel="noopener">Michela Ferraro</a> and <a href="https://linkedin.com/in/albertosesia" target="_blank" rel="noopener">Alberto Sesia</a>',
     'footer_services_international' => 'International Transport',
     'footer_services_rental' => 'Equipment Rental',
     

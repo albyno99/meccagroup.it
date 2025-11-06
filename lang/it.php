@@ -48,7 +48,8 @@ return [
     'footer_contact_title' => 'Contatti',
     'footer_services_title' => 'Servizi',
     'footer_hours_title' => 'Orari',
-    'footer_copyright' => '© 2024 Mecca Group. Tutti i diritti riservati.',
+    'footer_copyright' => '© ' . date('Y') . ' Mecca Group. Tutti i diritti riservati.',
+    'footer_made_with_love' => 'Made With Love By <a href="https://michelaferraro.framer.website/" target="_blank" rel="noopener">Michela Ferraro</a> e <a href="https://linkedin.com/in/albertosesia" target="_blank" rel="noopener">Alberto Sesia</a>',
     'footer_services_international' => 'Trasporti Internazionali',
     'footer_services_rental' => 'Noleggio Attrezzature',
     

@@ -41,6 +41,7 @@
         
         <div class="footer-bottom">
             <p><?php echo t('footer_copyright'); ?></p>
+            <p><?php echo t('footer_made_with_love'); ?></p>
         </div>
     </div>
 </footer>
