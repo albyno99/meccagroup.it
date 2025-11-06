@@ -131,7 +131,10 @@ class LanguageManager {
             'home' => 'index.php',
             'about' => 'about-us.php',
             'services' => 'services.php',
-            'contact' => 'contact.php'
+            'contact' => 'contact.php',
+            'terms' => 'terms-of-service.php',
+            'privacy' => 'privacy-policy.php',
+            'cookies' => 'cookie-policy.php'
         ];
         
         $url = isset($pages[$page]) ? $pages[$page] : 'index.php';
@@ -165,6 +168,18 @@ class LanguageManager {
             case 'contact':
                 $title = ($lang === 'it') ? 'Contatti - Mecca Group' : 'Contact - Mecca Group';
                 $description = $this->get('meta_description_contact');
+                break;
+            case 'terms':
+                $title = ($lang === 'it') ? 'Termini e Condizioni - Mecca Group' : 'Terms and Conditions - Mecca Group';
+                $description = ($lang === 'it') ? 'Termini e condizioni di servizio di Mecca Group per trasporti e materiali edili' : 'Mecca Group terms and conditions of service for transport and building materials';
+                break;
+            case 'privacy':
+                $title = ($lang === 'it') ? 'Privacy Policy - Mecca Group' : 'Privacy Policy - Mecca Group';
+                $description = ($lang === 'it') ? 'Informativa sulla privacy di Mecca Group - Come raccogliamo e utilizziamo i tuoi dati personali' : 'Mecca Group privacy policy - How we collect and use your personal data';
+                break;
+            case 'cookies':
+                $title = ($lang === 'it') ? 'Cookie Policy - Mecca Group' : 'Cookie Policy - Mecca Group';
+                $description = ($lang === 'it') ? 'Cookie policy di Mecca Group - Informazioni sui cookie utilizzati sul nostro sito web' : 'Mecca Group cookie policy - Information about cookies used on our website';
                 break;
         }
         

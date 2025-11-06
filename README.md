@@ -26,6 +26,14 @@ Un sito web moderno e multilingue per Mecca Group, azienda specializzata in auto
 - **Sitemap XML** generata dinamicamente
 - **Meta descriptions** ottimizzate per ogni pagina
 
+### 🍪 Cookie Compliance & GDPR
+- **Banner cookie interattivo** conforme alle normative EU
+- **Gestione granulare consensi** - Necessari vs Analytics
+- **Pannello impostazioni avanzate** per utenti
+- **Persistenza preferenze** con localStorage
+- **Pagine legali complete** - Privacy, Cookie Policy, Terms of Service
+- **Sistema multilingue** per banner e preferenze
+
 ### 📱 Responsive Design
 - **Mobile-first approach** con CSS Grid e Flexbox
 - **Breakpoints ottimizzati** per dispositivi mobili, tablet e desktop
@@ -41,25 +49,30 @@ meccagroup.it/
 ├── services.php           # Servizi
 ├── contact.php            # Contatti con form
 ├── process-contact.php    # Processamento form contatti
+├── terms-of-service.php   # Termini e condizioni
+├── privacy-policy.php     # Informativa privacy GDPR
+├── cookie-policy.php      # Cookie policy e gestione
 ├── 404.php               # Pagina errore 404
 ├── 500.php               # Pagina errore 500
+├── sitemap.xml           # Sitemap XML con pagine legali
 ├── .htaccess             # Configurazione Apache
 │
 ├── includes/
 │   ├── language.php      # Sistema di gestione lingue
-│   ├── header.php        # Header comune
-│   └── footer.php        # Footer comune
+│   ├── header.php        # Header comune con traduzioni cookie
+│   └── footer.php        # Footer con link legali
 │
 ├── lang/
-│   ├── it.php           # Traduzioni italiane
-│   └── en.php           # Traduzioni inglesi
+│   ├── it.php           # Traduzioni italiane (+ cookie/legal)
+│   └── en.php           # Traduzioni inglesi (+ cookie/legal)
 │
 ├── css/
-│   └── style.css        # Stili CSS principali
+│   └── style.css        # Stili CSS + cookie banner & pagine legali
 │
 ├── js/
 │   ├── script.js        # JavaScript principale
-│   └── contact.js       # JavaScript pagina contatti
+│   ├── contact.js       # JavaScript pagina contatti
+│   └── cookies.js       # Gestione cookie e consensi GDPR
 │
 └── media/
     ├── flag-it.svg      # Bandiera italiana
@@ -75,10 +88,18 @@ meccagroup.it/
 - **Form processing** con validazione e invio email
 
 ### Frontend
-- **HTML5** semantico
+- **HTML5** semantico con accessibilità
 - **CSS3** con variabili CSS e moderne tecniche di layout
-- **JavaScript ES6+** per interattività
-- **Google Fonts** (Inter) per tipografia
+- **JavaScript ES6+** per interattività e gestione cookie
+- **Google Fonts** (Montserrat) per tipografia
+- **Sistema cookie GDPR** completamente custom
+
+### Compliance & Legal
+- **GDPR compliant** - Gestione consensi e diritti utente
+- **Cookie Law EU** - Banner e gestione preferenze
+- **Termini e condizioni** personalizzati per l'azienda
+- **Privacy policy** dettagliata con procedure e diritti
+- **Accessibilità web** secondo standard WCAG
 
 ### SEO e Performance
 - **Apache .htaccess** per ottimizzazioni server
@@ -235,11 +256,10 @@ Modifica il metodo `generateMetaTags()` in `includes/language.php`
 ## 📞 Supporto
 
 Per supporto tecnico o modifiche:
-- Email: [inserire email tecnico]
+- Email: albertosesia@gmail.com
 - Documentazione: Questo README
 - Version control: Implementare Git per tracking modifiche
 
 ---
 
 **Mecca Group** - Trasporti e Materiali Edili dal 1985
-*Sito sviluppato con tecnologie moderne per performance e SEO ottimali*

@@ -1,6 +1,25 @@
 <?php
 require_once __DIR__ . '/language.php';
 ?>
+<script>
+// Pass translations to JavaScript
+window.cookieTranslations = {
+    title: "<?php echo addslashes(t('cookie_banner_title')); ?>",
+    message: "<?php echo addslashes(t('cookie_banner_message')); ?>",
+    accept: "<?php echo addslashes(t('cookie_banner_accept')); ?>",
+    settings: "<?php echo addslashes(t('cookie_banner_settings')); ?>",
+    reject: "<?php echo addslashes(t('cookie_banner_reject')); ?>",
+    learnMore: "<?php echo addslashes(t('cookie_banner_learn_more')); ?>",
+    settingsTitle: "<?php echo addslashes(t('cookie_settings_title')); ?>",
+    settingsDescription: "<?php echo addslashes(t('cookie_settings_description')); ?>",
+    necessaryTitle: "<?php echo addslashes(t('cookie_necessary_title')); ?>",
+    necessaryDescription: "<?php echo addslashes(t('cookie_necessary_description')); ?>",
+    analyticsTitle: "<?php echo addslashes(t('cookie_analytics_title')); ?>",
+    analyticsDescription: "<?php echo addslashes(t('cookie_analytics_description')); ?>",
+    save: "<?php echo addslashes(t('cookie_settings_save')); ?>",
+    acceptSelected: "<?php echo addslashes(t('cookie_settings_accept_selected')); ?>"
+};
+</script>
 <!-- Navigation -->
 <nav class="navbar">
     <div class="nav-container">

@@ -45,6 +45,13 @@
         
         <div class="footer-bottom">
             <p><?php echo t('footer_copyright'); ?></p>
+            <div class="footer-legal">
+                <a href="<?php echo $lang->getPageUrl('terms'); ?>"><?php echo t('terms_nav'); ?></a>
+                <span>|</span>
+                <a href="<?php echo $lang->getPageUrl('privacy'); ?>"><?php echo t('privacy_nav'); ?></a>
+                <span>|</span>
+                <a href="<?php echo $lang->getPageUrl('cookies'); ?>"><?php echo t('cookies_nav'); ?></a>
+            </div>
             <p><?php echo t('footer_made_with_love'); ?></p>
         </div>
     </div>

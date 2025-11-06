@@ -201,14 +201,14 @@ try {
                 <p>" . ($lang === 'en' ? 
                     'If you need immediate assistance, you can call us at:' : 
                     'Se hai bisogno di assistenza immediata, puoi chiamarci al:') . "</p>
-                <p style='font-weight: bold;'>+39 331 625 47 83</p>
+                <p style='font-weight: bold;'>+39 331 625 47 83 / +39 0141 943008</p>
                 <p>" . ($lang === 'en' ? 
                     'Best regards,<br>Mecca Group Team' : 
                     'Cordiali saluti,<br>Il Team di Mecca Group') . "</p>
             </div>
             <div class='footer'>
                 <p>Mecca Group | Viale Cavalieri di Vittorio Veneto, 3 - 14010 Cantarana (AT)<br>
-                Tel: +39 331 625 47 83 | Email: info@meccagroup.it</p>
+                Tel: +39 331 625 47 83 / +39 0141 943008 | Email: info@meccagroup.it</p>
             </div>
         </body>
         </html>";

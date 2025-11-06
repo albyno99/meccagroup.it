@@ -234,5 +234,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
+    <script src="js/cookies.js"></script>
 </body>
 </html>

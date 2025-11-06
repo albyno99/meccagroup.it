@@ -6,6 +6,9 @@ Allow: /index.php
 Allow: /about-us.php
 Allow: /services.php
 Allow: /contact.php
+Allow: /terms-of-service.php
+Allow: /privacy-policy.php
+Allow: /cookie-policy.php
 Allow: /css/
 Allow: /js/
 Allow: /media/

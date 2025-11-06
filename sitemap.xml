@@ -134,4 +134,70 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/contact"/>
     </url>
     
+    <!-- Terms of Service -->
+    <url>
+        <loc>https://www.meccagroup.it/terms-of-service</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.meccagroup.it/terms-of-service"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.meccagroup.it/terms-of-service?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/terms-of-service"/>
+    </url>
+    
+    <!-- Terms of Service English -->
+    <url>
+        <loc>https://www.meccagroup.it/terms-of-service?lang=en</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.meccagroup.it/terms-of-service"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.meccagroup.it/terms-of-service?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/terms-of-service"/>
+    </url>
+    
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://www.meccagroup.it/privacy-policy</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.meccagroup.it/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.meccagroup.it/privacy-policy?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/privacy-policy"/>
+    </url>
+    
+    <!-- Privacy Policy English -->
+    <url>
+        <loc>https://www.meccagroup.it/privacy-policy?lang=en</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.meccagroup.it/privacy-policy"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.meccagroup.it/privacy-policy?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/privacy-policy"/>
+    </url>
+    
+    <!-- Cookie Policy -->
+    <url>
+        <loc>https://www.meccagroup.it/cookie-policy</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.meccagroup.it/cookie-policy"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.meccagroup.it/cookie-policy?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/cookie-policy"/>
+    </url>
+    
+    <!-- Cookie Policy English -->
+    <url>
+        <loc>https://www.meccagroup.it/cookie-policy?lang=en</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="it" href="https://www.meccagroup.it/cookie-policy"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.meccagroup.it/cookie-policy?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.meccagroup.it/cookie-policy"/>
+    </url>
+    
 </urlset>
