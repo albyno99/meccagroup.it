@@ -24,7 +24,9 @@ window.cookieTranslations = {
 <nav class="navbar">
     <div class="nav-container">
         <div class="nav-logo">
-            <img src="media/mecca_logo_white.png" alt="Mecca Group" class="logo">
+            <a href="<?php echo $lang->getPageUrl('home'); ?>">
+                <img src="media/mecca_logo_white.png" alt="Mecca Group" class="logo">
+            </a>
         </div>
         <ul class="nav-menu">
             <li class="nav-item">

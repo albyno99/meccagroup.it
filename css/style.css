@@ -1291,11 +1291,10 @@ body {
 /* Page Hero */
 .page-hero {
     position: relative;
-    height: 60vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    margin-top: 80px;
 }
 
 .page-hero .hero-bg {
@@ -1305,18 +1304,13 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    will-change: auto;
 }
 
 .page-hero .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
-    position: relative;
-    will-change: auto;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
+    object-position: center top;
 }
 
 .page-hero .hero-content {
@@ -1337,14 +1331,6 @@ body {
         rgba(197, 48, 48, 0.6) 50%,
         rgba(26, 32, 44, 0.4) 100%
     );
-    z-index: 2;
-}
-
-/* Force disable any parallax effects */
-.page-hero *, 
-.page-hero *::before, 
-.page-hero *::after {
-    background-attachment: scroll !important;
 }
 
 .page-title {
@@ -1352,12 +1338,27 @@ body {
     font-weight: 800;
     color: var(--white);
     margin-bottom: var(--spacing-4);
+    text-align: center;
 }
 
 .page-subtitle {
     font-size: var(--font-size-xl);
     color: var(--gray-200);
     max-width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .page-subtitle {
+        font-size: var(--font-size-lg);
+        padding: 0 var(--spacing-4);
+    }
 }
 
 /* Story Section */
@@ -2426,11 +2427,7 @@ body {
 }
 
 /* Contact Page Styles */
-.contact-hero {
-    position: relative;
-    min-height: 400px;
-    background: var(--gradient-primary);
-}
+/* La classe contact-hero ora eredita tutto dal page-hero */
 
 .contact-info-section {
     padding: 80px 0;
