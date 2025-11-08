@@ -71,6 +71,44 @@
         </div>
     </section>
 
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="section-title text-center"><?php echo t('about_partners_title'); ?></h2>
+            <p class="section-description text-center"><?php echo t('about_partners_desc'); ?></p>
+            
+            <div class="partners-carousel">
+                <div class="partners-track">
+                    <div class="partner-logo">
+                        <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/ambrogio.png" alt="Ambrogio" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/logo-util-grey-B.png" alt="Util" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/Alessiotubi-logo.png" alt="AlessioTubi" loading="lazy">
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="partner-logo">
+                        <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/ambrogio.png" alt="Ambrogio" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/logo-util-grey-B.png" alt="Util" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/Alessiotubi-logo.png" alt="AlessioTubi" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Instagram Section -->
     <section class="instagram-section">
         <div class="container">
