@@ -74,6 +74,35 @@
         </div>
     </section>
 
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title text-center"><?php echo t('contact_map_title'); ?></h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2832.123456789!2d8.123456!3d44.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d2b1234567890a%3A0x1234567890abcdef!2sViale%20Cavalieri%20di%20Vittorio%20Veneto%2C%203%2C%2014010%20Cantarana%20AT%2C%20Italy!5e0!3m2!1sen!2sit!4v1234567890123!5m2!1sen!2sit" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0; border-radius: 16px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="location-info">
+                    <h3>Mecca Group</h3>
+                    <p>Viale Cavalieri di Vittorio Veneto, 3<br>14010 Cantarana (AT), Italia</p>
+                    <div class="location-actions">
+                        <a href="https://maps.google.com/?q=Viale+Cavalieri+di+Vittorio+Veneto,+3,+14010+Cantarana+AT,+Italy" target="_blank" class="btn btn-outline">
+                            <?php echo t('contact_map_open'); ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Form Section -->
     <section class="contact-form-section">
         <div class="container">
@@ -119,8 +148,8 @@
                             <option value=""><?php echo t('contact_form_service_select'); ?></option>
                             <option value="autotrasporti"><?php echo t('contact_form_service_auto'); ?></option>
                             <option value="materiali-edili"><?php echo t('contact_form_service_materials'); ?></option>
-                            <option value="trasporti-internazionali"><?php echo t('contact_form_service_international'); ?></option>
-                            <option value="noleggio-attrezzature"><?php echo t('contact_form_service_rental'); ?></option>
+                            <option value="noleggio-attrezzature"><?php echo t('contact_form_service_equipment'); ?></option>
+                            <option value="consulenza-tecnica"><?php echo t('contact_form_service_consulting'); ?></option>
                             <option value="altro"><?php echo t('contact_form_service_other'); ?></option>
                         </select>
                     </div>
@@ -151,35 +180,6 @@
                         <span class="btn-loader" style="display: none;"><?php echo t('contact_form_sending'); ?></span>
                     </button>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container">
-            <h2 class="section-title text-center"><?php echo t('contact_map_title'); ?></h2>
-            <div class="map-container">
-                <div class="map-placeholder">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2832.123456789!2d8.123456!3d44.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d2b1234567890a%3A0x1234567890abcdef!2sViale%20Cavalieri%20di%20Vittorio%20Veneto%2C%203%2C%2014010%20Cantarana%20AT%2C%20Italy!5e0!3m2!1sen!2sit!4v1234567890123!5m2!1sen!2sit" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0; border-radius: 16px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                <div class="location-info">
-                    <h3>Mecca Group</h3>
-                    <p>Viale Cavalieri di Vittorio Veneto, 3<br>14010 Cantarana (AT), Italia</p>
-                    <div class="location-actions">
-                        <a href="https://maps.google.com/?q=Viale+Cavalieri+di+Vittorio+Veneto,+3,+14010+Cantarana+AT,+Italy" target="_blank" class="btn btn-outline">
-                            <?php echo t('contact_map_open'); ?>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

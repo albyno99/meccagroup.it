@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navbar) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(229, 62, 62, 0.95)';
+                navbar.style.background = 'rgba(227, 6, 19, 0.95)';
                 navbar.style.backdropFilter = 'blur(10px)';
             } else {
                 navbar.style.background = 'var(--primary-red)';

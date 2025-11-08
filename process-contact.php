@@ -120,7 +120,7 @@ try {
         $serviceLabels = [
             'autotrasporti' => $lang === 'en' ? 'Transportation' : 'Autotrasporti',
             'materiali-edili' => $lang === 'en' ? 'Building Materials' : 'Materiali Edili',
-            'trasporti-internazionali' => $lang === 'en' ? 'International Transport' : 'Trasporti Internazionali',
+            'noleggio-attrezzature' => $lang === 'en' ? 'Equipment Rental' : 'Noleggio Attrezzature',
             'noleggio-attrezzature' => $lang === 'en' ? 'Equipment Rental' : 'Noleggio Attrezzature',
             'altro' => $lang === 'en' ? 'Other' : 'Altro'
         ];

@@ -45,7 +45,7 @@
                     <p><?php echo t('services_overview_3_desc'); ?></p>
                 </div>
                 <div class="overview-item">
-                    <div class="overview-icon">⚙️</div>
+                    <div class="overview-icon">💼</div>
                     <h3><?php echo t('services_overview_4_title'); ?></h3>
                     <p><?php echo t('services_overview_4_desc'); ?></p>
                 </div>

@@ -33,8 +33,8 @@
                 <ul>
                     <li><a href="<?php echo $lang->getPageUrl('services'); ?>#autotrasporti"><?php echo t('nav_autotrasporti'); ?></a></li>
                     <li><a href="<?php echo $lang->getPageUrl('services'); ?>#materiali-edili"><?php echo t('nav_materiali_edili'); ?></a></li>
-                    <li><a href="<?php echo $lang->getPageUrl('services'); ?>"><?php echo t('footer_services_international'); ?></a></li>
-                    <li><a href="<?php echo $lang->getPageUrl('services'); ?>"><?php echo t('footer_services_rental'); ?></a></li>
+                    <li><a href="<?php echo $lang->getPageUrl('services'); ?>"><?php echo t('footer_services_equipment'); ?></a></li>
+                    <li><a href="<?php echo $lang->getPageUrl('services'); ?>"><?php echo t('footer_services_consulting'); ?></a></li>
                 </ul>
             </div>
             

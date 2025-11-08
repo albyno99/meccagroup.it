@@ -81,20 +81,58 @@
             
             <div class="team-stats">
                 <div class="stat-item">
-                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-number" data-count="57">0</div>
                     <div class="stat-label"><?php echo t('about_stat_experience'); ?></div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="25">0</div>
+                    <div class="stat-number" data-count="15">0</div>
                     <div class="stat-label"><?php echo t('about_stat_employees'); ?></div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-number" data-count="16000">0</div>
                     <div class="stat-label"><?php echo t('about_stat_clients'); ?></div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-number" data-count="20">0</div>
                     <div class="stat-label"><?php echo t('about_stat_vehicles'); ?></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="section-title text-center"><?php echo t('about_partners_title'); ?></h2>
+            <p class="section-description text-center"><?php echo t('about_partners_desc'); ?></p>
+            
+            <div class="partners-carousel">
+                <div class="partners-track">
+                    <div class="partner-logo">
+                        <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/ambrogio.png" alt="Ambrogio" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/logo-util-grey-B.png" alt="Util" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/Alessiotubi-logo.png" alt="AlessioTubi" loading="lazy">
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="partner-logo">
+                        <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/ambrogio.png" alt="Ambrogio" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/logo-util-grey-B.png" alt="Util" loading="lazy">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="media/Alessiotubi-logo.png" alt="AlessioTubi" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,31 +158,13 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section class="certifications-section">
+    <!-- Vision Section -->
+    <section class="vision-section">
         <div class="container">
-            <h2 class="section-title text-center"><?php echo t('about_cert_title'); ?></h2>
-            <div class="certifications-content">
-                <div class="cert-text">
-                    <p><?php echo t('about_cert_desc'); ?></p>
-                    <ul class="cert-list">
-                        <li><?php echo t('about_cert_1'); ?></li>
-                        <li><?php echo t('about_cert_2'); ?></li>
-                        <li><?php echo t('about_cert_3'); ?></li>
-                        <li><?php echo t('about_cert_4'); ?></li>
-                        <li><?php echo t('about_cert_5'); ?></li>
-                    </ul>
-                </div>
-                <div class="cert-logos">
-                    <div class="cert-placeholder">
-                        <span>ISO 9001</span>
-                    </div>
-                    <div class="cert-placeholder">
-                        <span><?php echo $lang->getCurrentLanguage() === 'it' ? 'Trasporti Eccezionali' : 'Exceptional Transport'; ?></span>
-                    </div>
-                    <div class="cert-placeholder">
-                        <span><?php echo $lang->getCurrentLanguage() === 'it' ? 'Sicurezza' : 'Safety'; ?></span>
-                    </div>
+            <div class="vision-content">
+                <h2 class="section-title"><?php echo t('about_vision_title'); ?></h2>
+                <div class="vision-text">
+                    <blockquote><?php echo t('about_vision_quote'); ?></blockquote>
                 </div>
             </div>
         </div>
