@@ -208,6 +208,9 @@ body {
     text-decoration: none;
     border-radius: var(--radius-md);
     transition: background-color var(--transition-fast);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .dropdown-content a:hover {
@@ -365,7 +368,11 @@ body {
     }
 
     .dropdown-content a {
-        color: var(--white);
+        color: var(--gray-800);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .language-toggle {
@@ -686,6 +693,12 @@ body {
 .service-logo {
     width: 48px;
     height: 48px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--spacing-2);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .service-card h2 {
@@ -1833,6 +1846,12 @@ body {
 .service-brand-logo {
     width: 64px;
     height: 64px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--spacing-3);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .service-brand h2 {
@@ -1851,7 +1870,8 @@ body {
     font-size: var(--font-size-xl);
     opacity: 0.9;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 0 0 auto;
+    text-align: left;
 }
 
 .service-content-grid {
@@ -1896,6 +1916,12 @@ body {
         display: block;
         margin-bottom: var(--spacing-2);
         order: 1; /* Logo prima */
+        background: rgba(255, 255, 255, 0.9);
+        padding: var(--spacing-2);
+        border-radius: var(--radius-lg);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
     
     .service-brand h2 {
@@ -1916,6 +1942,9 @@ body {
     .service-intro {
         font-size: var(--font-size-base);
         padding: 0 var(--spacing-4);
+        text-align: center;
+        margin: 0 auto;
+        max-width: 100%;
     }
     
     .service-content-grid {

@@ -59,9 +59,8 @@
             <div class="service-header">
                 <div class="service-brand">
                     <img src="media/mecca_logo_autotrasporti.png" alt="<?php echo t('nav_autotrasporti'); ?>" class="service-brand-logo">
-                    <h2><?php echo t('services_autotrasporti_title'); ?></h2>
+                    <h2><?php echo t('nav_autotrasporti'); ?></h2>
                 </div>
-                <h3><?php echo t('services_autotrasporti_subtitle'); ?></h3>
                 <p class="service-intro"><?php echo t('services_autotrasporti_desc'); ?></p>
             </div>
 
@@ -131,9 +130,8 @@
             <div class="service-header">
                 <div class="service-brand">
                     <img src="media/mecca_logo_edili.png" alt="<?php echo t('nav_materiali_edili'); ?>" class="service-brand-logo">
-                    <h2><?php echo t('services_materiali_title'); ?></h2>
+                    <h2><?php echo t('nav_materiali_edili'); ?></h2>
                 </div>
-                <h3><?php echo t('services_materiali_subtitle'); ?></h3>
                 <p class="service-intro"><?php echo t('services_materiali_desc'); ?></p>
             </div>
 

@@ -51,7 +51,7 @@ return [
     'footer_hours_title' => 'Orari',
     'footer_copyright' => '© ' . date('Y') . ' Mecca Group. Tutti i diritti riservati.',
     'footer_made_with_love' => 'Made With Love By <a href="https://michelaferraro.framer.website/" target="_blank" rel="noopener">Michela Ferraro</a> e <a href="https://linkedin.com/in/albertosesia" target="_blank" rel="noopener">Alberto Sesia</a>',
-    'footer_services_equipment' => 'Noleggio Attrezzature',
+    'footer_services_equipment' => 'Gestione Logistica',
     'footer_services_consulting' => 'Consulenza Tecnica',
     
     // About page
@@ -99,8 +99,8 @@ return [
     'services_overview_1_desc' => 'Autotrasporti per conto terzi e merci voluminose',
     'services_overview_2_title' => 'Materiali Edili',
     'services_overview_2_desc' => 'Fornitura e consegna di materiali per l\'edilizia e prodotti siderurgici',
-    'services_overview_3_title' => 'Noleggio Attrezzature',
-    'services_overview_3_desc' => 'Noleggio di attrezzature edili e macchinari specializzati',
+    'services_overview_3_title' => 'Gestione Logistica',
+    'services_overview_3_desc' => 'Coordinamento completo delle forniture e soluzioni di trasporto personalizzate',
     'services_overview_4_title' => 'Consulenza Tecnica',
     'services_overview_4_desc' => 'Supporto professionale per la scelta dei materiali e soluzioni logistiche',
     'services_auto_features_title' => 'I nostri servizi di autotrasporto',
@@ -174,7 +174,7 @@ return [
     'contact_form_service_select' => 'Seleziona un servizio',
     'contact_form_service_auto' => 'Autotrasporti',
     'contact_form_service_materials' => 'Materiali Edili',
-    'contact_form_service_equipment' => 'Noleggio Attrezzature',
+    'contact_form_service_equipment' => 'Gestione Logistica',
     'contact_form_service_consulting' => 'Consulenza Tecnica',
     'contact_form_service_other' => 'Altro',
     'contact_form_message' => 'Messaggio',

@@ -51,7 +51,7 @@ return [
     'footer_hours_title' => 'Hours',
     'footer_copyright' => '© ' . date('Y') . ' Mecca Group. All rights reserved.',
     'footer_made_with_love' => 'Made With Love By <a href="https://michelaferraro.framer.website/" target="_blank" rel="noopener">Michela Ferraro</a> and <a href="https://linkedin.com/in/albertosesia" target="_blank" rel="noopener">Alberto Sesia</a>',
-    'footer_services_equipment' => 'Equipment Rental',
+    'footer_services_equipment' => 'Logistics Management',
     'footer_services_consulting' => 'Technical Consulting',
     
     // About page
@@ -99,8 +99,8 @@ return [
     'services_overview_1_desc' => 'Third-party transport and bulky goods',
     'services_overview_2_title' => 'Building Materials',
     'services_overview_2_desc' => 'Supply and delivery of construction materials and steel products',
-    'services_overview_3_title' => 'Equipment Rental',
-    'services_overview_3_desc' => 'Rental of construction equipment and specialized machinery',
+    'services_overview_3_title' => 'Logistics Management',
+    'services_overview_3_desc' => 'Complete coordination of supplies and customized transport solutions',
     'services_overview_4_title' => 'Technical Consulting',
     'services_overview_4_desc' => 'Professional support for material selection and logistics solutions',
     'services_auto_features_title' => 'Our transportation services',
@@ -174,7 +174,7 @@ return [
     'contact_form_service_select' => 'Select a service',
     'contact_form_service_auto' => 'Transportation',
     'contact_form_service_materials' => 'Building Materials',
-    'contact_form_service_equipment' => 'Equipment Rental',
+    'contact_form_service_equipment' => 'Logistics Management',
     'contact_form_service_consulting' => 'Technical Consulting',
     'contact_form_service_other' => 'Other',
     'contact_form_message' => 'Message',
