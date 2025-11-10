@@ -462,6 +462,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
 });
 
+// Partner logos tooltip management
+document.addEventListener('DOMContentLoaded', function() {
+    const partnerLogos = document.querySelectorAll('.partner-logo');
+    
+    partnerLogos.forEach(logo => {
+        logo.addEventListener('mouseenter', function() {
+            // Pause animation on hover for better UX
+            const track = document.querySelector('.partners-track');
+            if (track) {
+                track.style.animationPlayState = 'paused';
+            }
+        });
+        
+        logo.addEventListener('mouseleave', function() {
+            // Resume animation
+            const track = document.querySelector('.partners-track');
+            if (track) {
+                track.style.animationPlayState = 'running';
+            }
+        });
+        
+        // Handle click for mobile devices
+        logo.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const tooltip = this.querySelector('.partner-tooltip');
+                if (tooltip) {
+                    // Show tooltip briefly on mobile
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                    setTimeout(() => {
+                        tooltip.style.opacity = '0';
+                        tooltip.style.visibility = 'hidden';
+                    }, 2000);
+                    
+                    // Then navigate after tooltip disappears
+                    setTimeout(() => {
+                        window.open(this.href, '_blank');
+                    }, 2200);
+                }
+            }
+        });
+    });
+});
+
 // Export functions for potential use in other scripts
 window.MeccaGroup = {
     showNotification,
