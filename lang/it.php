@@ -33,7 +33,7 @@ return [
     'trailer_coils' => 'Trasporto Coil',
     'trailer_coils_desc' => 'Rimorchi specializzati per il trasporto sicuro di bobine d\'acciaio e materiali arrotolati',
     'trailer_container' => 'Porta Container',
-    'trailer_container_desc' => 'Rimorchi per il trasporto di container standard e speciali',
+    'trailer_container_desc' => 'Rimorchi per il trasporto di container standard',
     
     // Instagram section
     'instagram_title' => 'SEGUICI SU INSTAGRAM',

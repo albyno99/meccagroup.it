@@ -33,7 +33,7 @@ return [
     'trailer_coils' => 'Coil Transport',
     'trailer_coils_desc' => 'Specialized trailers for the safe transport of steel coils and rolled materials',
     'trailer_container' => 'Container Carrier',
-    'trailer_container_desc' => 'Trailers for transporting standard and special containers',
+    'trailer_container_desc' => 'Trailers for transporting standard containers',
     
     // Instagram section
     'instagram_title' => 'FOLLOW US ON INSTAGRAM',
