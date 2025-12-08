@@ -14,7 +14,7 @@
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="hero-bg">
-            <img src="media/mecca_isidoro_copertina.png" alt="<?php echo t('about_page_title'); ?>" class="hero-image">
+            <img src="media/FotoMeccaGroup 2025-11-08 at 18.49.01.jpeg" alt="<?php echo t('about_page_title'); ?>" class="hero-image">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">

@@ -14,7 +14,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="media/mecca_isidoro_copertina.png" alt="Mecca Group Hero" class="hero-image">
+            <img src="media/FotoMeccaGroup 2025-11-08 at 18.49.59.jpeg" alt="Mecca Group Hero" class="hero-image">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -48,7 +48,7 @@
                         <a href="<?php echo $lang->getPageUrl('services'); ?>#autotrasporti" class="service-link"><?php echo t('services_discover_more'); ?></a>
                     </div>
                     <div class="service-image">
-                        <img src="media/mecca_autotrasporti_camion.png" alt="<?php echo t('nav_autotrasporti'); ?>">
+                        <img src="media/FotoMeccaGroup 2025-11-08 at 18.48.20.jpeg" alt="<?php echo t('nav_autotrasporti'); ?>">
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                         <a href="<?php echo $lang->getPageUrl('services'); ?>#materiali-edili" class="service-link"><?php echo t('services_discover_more'); ?></a>
                     </div>
                     <div class="service-image">
-                        <img src="media/bricks_1.png" alt="<?php echo t('nav_materiali_edili'); ?>">
+                        <img src="media/FotoMeccaGroup 2025-11-08 at 18.46.19.jpeg" alt="<?php echo t('nav_materiali_edili'); ?>">
                     </div>
                 </div>
             </div>
@@ -79,31 +79,39 @@
             
             <div class="partners-carousel">
                 <div class="partners-track">
-                    <div class="partner-logo">
+                    <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Marcegaglia">
                         <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="media/ambrogio.png" alt="Ambrogio" loading="lazy">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="media/logo-util-grey-B.png" alt="Util" loading="lazy">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="media/Alessiotubi-logo.png" alt="AlessioTubi" loading="lazy">
-                    </div>
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://ambrogiointermodal.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Ambrogio Intermodal">
+                        <img src="media/ambrogio.png" alt="Ambrogio Intermodal" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://utilgroup.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Util Group">
+                        <img src="media/logo-util-grey-B.png" alt="Util Group" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Alessio Tubi">
+                        <img src="media/Alessiotubi-logo.png" alt="Alessio Tubi" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
                     <!-- Duplicate for seamless loop -->
-                    <div class="partner-logo">
+                    <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Marcegaglia">
                         <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="media/ambrogio.png" alt="Ambrogio" loading="lazy">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="media/logo-util-grey-B.png" alt="Util" loading="lazy">
-                    </div>
-                    <div class="partner-logo">
-                        <img src="media/Alessiotubi-logo.png" alt="AlessioTubi" loading="lazy">
-                    </div>
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://ambrogiointermodal.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Ambrogio Intermodal">
+                        <img src="media/ambrogio.png" alt="Ambrogio Intermodal" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://utilgroup.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Util Group">
+                        <img src="media/logo-util-grey-B.png" alt="Util Group" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Alessio Tubi">
+                        <img src="media/Alessiotubi-logo.png" alt="Alessio Tubi" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
                 </div>
             </div>
         </div>
