@@ -6,6 +6,7 @@
     <?php echo $lang->generateMetaTags('contact'); ?>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcrjCUsAAAAANT-41jDB7r9VTHTYu4sVBjwq4Eg"></script>
     <?php echo $lang->generateStructuredData('contact'); ?>
 </head>
 <body>
@@ -114,6 +115,7 @@
                 
                 <form class="contact-form" id="contact-form" method="POST" action="process-contact.php">
                     <input type="hidden" name="lang" value="<?php echo $lang->getCurrentLanguage(); ?>">
+                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                     
                     <div class="form-row">
                         <div class="form-group">

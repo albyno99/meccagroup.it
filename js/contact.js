@@ -25,27 +25,56 @@ function handleFormSubmit(e) {
     btnLoader.style.display = 'inline';
     submitBtn.disabled = true;
     
-    // Collect form data
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Simulate form submission (replace with actual endpoint)
-    setTimeout(() => {
-        // Reset button state
-        btnText.style.display = 'inline';
-        btnLoader.style.display = 'none';
-        submitBtn.disabled = false;
-        
-        // Show success message
-        showNotification('Grazie per la tua richiesta! Ti risponderemo entro 24 ore.', 'success');
-        
-        // Reset form
-        e.target.reset();
-        
-        // Log data for development (remove in production)
-        console.log('Form submitted with data:', data);
-        
-    }, 2000);
+    // Execute reCAPTCHA
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LcrjCUsAAAAANT-41jDB7r9VTHTYu4sVBjwq4Eg', {action: 'submit'}).then(function(token) {
+            // Add token to form
+            document.getElementById('recaptcha_token').value = token;
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            
+            // Add language
+            formData.append('lang', document.documentElement.lang || 'it');
+            
+            // Send form data to server
+            fetch('process-contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoader.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                if (data.success) {
+                    // Show success message
+                    showNotification(data.message, 'success');
+                    // Reset form
+                    e.target.reset();
+                } else {
+                    // Show error message
+                    showNotification(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoader.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Show error message
+                const lang = document.documentElement.lang || 'it';
+                const errorMsg = lang === 'en' 
+                    ? 'An error occurred. Please try again.' 
+                    : 'Si è verificato un errore. Riprova più tardi.';
+                showNotification(errorMsg, 'error');
+                console.error('Form submission error:', error);
+            });
+        });
+    });
 }
 
 function initializeFAQ() {

@@ -1,5 +1,12 @@
 <?php
 require_once 'includes/language.php';
+require_once 'includes/phpmailer/PHPMailer.php';
+require_once 'includes/phpmailer/SMTP.php';
+require_once 'includes/phpmailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 // Set response header
 header('Content-Type: application/json');
@@ -20,6 +27,42 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $response = ['success' => false, 'message' => ''];
 
 try {
+    // Verify reCAPTCHA
+    $recaptchaToken = $_POST['recaptcha_token'] ?? '';
+    
+    if (empty($recaptchaToken)) {
+        $response['message'] = $lang === 'en' ? 'reCAPTCHA verification failed' : 'Verifica reCAPTCHA fallita';
+        echo json_encode($response);
+        exit;
+    }
+    
+    // Verify token with Google
+    $recaptchaSecret = '6LcrjCUsAAAAAMzR4xRBpcLYE_0s_eCMdyExGZRs';
+    $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptchaData = [
+        'secret' => $recaptchaSecret,
+        'response' => $recaptchaToken,
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    ];
+    
+    $recaptchaOptions = [
+        'http' => [
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($recaptchaData)
+        ]
+    ];
+    
+    $recaptchaContext = stream_context_create($recaptchaOptions);
+    $recaptchaResult = file_get_contents($recaptchaUrl, false, $recaptchaContext);
+    $recaptchaJson = json_decode($recaptchaResult);
+    
+    if (!$recaptchaJson->success || $recaptchaJson->score < 0.5) {
+        $response['message'] = $lang === 'en' ? 'reCAPTCHA verification failed. Please try again.' : 'Verifica reCAPTCHA fallita. Riprova.';
+        echo json_encode($response);
+        exit;
+    }
+    
     // Sanitize and validate input
     $nome = trim($_POST['nome'] ?? '');
     $cognome = trim($_POST['cognome'] ?? '');
@@ -163,20 +206,41 @@ try {
     </body>
     </html>";
     
-    // Email headers
-    $headers = [
-        'From: no-reply@meccagroup.it',
-        'Reply-To: ' . $email,
-        'Content-Type: text/html; charset=UTF-8',
-        'X-Mailer: PHP/' . phpversion()
-    ];
+    // Configure PHPMailer
+    $mail = new PHPMailer(true);
     
-    // Send email to company
-    $to = 'info@meccagroup.it';
-    $sent = mail($to, $subject, $emailContent, implode("\r\n", $headers));
-    
-    if ($sent) {
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'martina.meccagroup@gmail.com';
+        $mail->Password   = 'gqewjbluhovpzltn';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+        $mail->CharSet    = 'UTF-8';
+        
+        // Recipients - Email to company
+        $mail->setFrom('lory@meccagroup.it', 'Mecca Group Website');
+        $mail->addAddress('lory@meccagroup.it', 'Mecca Group');
+        $mail->addCC('martina.meccagroup@gmail.com', 'Mecca Group');
+        $mail->addReplyTo($email, "$nome $cognome");
+        
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $emailContent;
+        $mail->AltBody = strip_tags($emailContent);
+        
+        // Send email to company
+        $mail->send();
+        
         // Send confirmation email to user
+        $mail->clearAddresses();
+        $mail->clearReplyTos();
+        $mail->setFrom('lory@meccagroup.it', 'Mecca Group');
+        $mail->addAddress($email, "$nome $cognome");
+        
         $confirmSubject = $lang === 'en' ? 'Thank you for contacting Mecca Group' : 'Grazie per aver contattato Mecca Group';
         
         $confirmContent = "
@@ -208,18 +272,17 @@ try {
             </div>
             <div class='footer'>
                 <p>Mecca Group | Viale Cavalieri di Vittorio Veneto, 3 - 14010 Cantarana (AT)<br>
-                Tel: +39 331 625 47 83 / +39 0141 943008 | Email: info@meccagroup.it</p>
+                Tel: +39 331 625 47 83 / +39 0141 943008 | Email: lory@meccagroup.it</p>
             </div>
         </body>
         </html>";
         
-        $confirmHeaders = [
-            'From: info@meccagroup.it',
-            'Content-Type: text/html; charset=UTF-8',
-            'X-Mailer: PHP/' . phpversion()
-        ];
+        $mail->Subject = $confirmSubject;
+        $mail->Body    = $confirmContent;
+        $mail->AltBody = strip_tags($confirmContent);
         
-        mail($email, $confirmSubject, $confirmContent, implode("\r\n", $confirmHeaders));
+        $mail->send();
+        $mail->send();
         
         // Log the contact for analytics (optional)
         $logData = [
@@ -239,7 +302,8 @@ try {
             'Thank you for your message! We will respond within 24 hours.' : 
             'Grazie per il tuo messaggio! Ti risponderemo entro 24 ore.';
             
-    } else {
+    } catch (Exception $e) {
+        error_log('PHPMailer error: ' . $mail->ErrorInfo);
         $response['message'] = $lang === 'en' ? 
             'There was an error sending your message. Please try again.' : 
             'Si è verificato un errore nell\'invio del messaggio. Riprova più tardi.';

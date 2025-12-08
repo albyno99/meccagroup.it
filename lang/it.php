@@ -25,6 +25,16 @@ return [
     'services_materiali_desc' => 'Fornitura e consegna di materiali edili di prima qualità per ogni tipo di progetto.',
     'services_discover_more' => 'Scopri di più →',
     
+    // Trailers section
+    'trailers_title' => 'I NOSTRI RIMORCHI',
+    'trailers_desc' => 'Disponiamo di una flotta specializzata per ogni tipo di trasporto',
+    'trailer_flip_tarp' => 'Flip Tarp',
+    'trailer_flip_tarp_desc' => 'Rimorchi con copertura basculante per carico e scarico rapido di materiali sfusi',
+    'trailer_coils' => 'Trasporto Coil',
+    'trailer_coils_desc' => 'Rimorchi specializzati per il trasporto sicuro di bobine d\'acciaio e materiali arrotolati',
+    'trailer_container' => 'Porta Container',
+    'trailer_container_desc' => 'Rimorchi per il trasporto di container standard e speciali',
+    
     // Instagram section
     'instagram_title' => 'SEGUICI SU INSTAGRAM',
     'instagram_story' => 'LA STORIA',

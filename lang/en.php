@@ -25,6 +25,16 @@ return [
     'services_materiali_desc' => 'Supply and delivery of top-quality building materials for every type of project.',
     'services_discover_more' => 'Discover more →',
     
+    // Trailers section
+    'trailers_title' => 'OUR TRAILERS',
+    'trailers_desc' => 'We have a specialized fleet for every type of transport',
+    'trailer_flip_tarp' => 'Flip Tarp',
+    'trailer_flip_tarp_desc' => 'Trailers with tilting cover for quick loading and unloading of bulk materials',
+    'trailer_coils' => 'Coil Transport',
+    'trailer_coils_desc' => 'Specialized trailers for the safe transport of steel coils and rolled materials',
+    'trailer_container' => 'Container Carrier',
+    'trailer_container_desc' => 'Trailers for transporting standard and special containers',
+    
     // Instagram section
     'instagram_title' => 'FOLLOW US ON INSTAGRAM',
     'instagram_story' => 'OUR STORY',

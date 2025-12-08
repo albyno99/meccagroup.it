@@ -71,6 +71,40 @@
         </div>
     </section>
 
+    <!-- Trailers Section -->
+    <section class="trailers-section">
+        <div class="container">
+            <h2 class="section-title text-center"><?php echo t('trailers_title'); ?></h2>
+            <p class="section-description text-center"><?php echo t('trailers_desc'); ?></p>
+            
+            <div class="trailers-grid">
+                <div class="trailer-card">
+                    <div class="trailer-image white-bg">
+                        <img src="media/Flip_tarp.png" alt="<?php echo t('trailer_flip_tarp'); ?>" loading="lazy">
+                    </div>
+                    <h3><?php echo t('trailer_flip_tarp'); ?></h3>
+                    <p><?php echo t('trailer_flip_tarp_desc'); ?></p>
+                </div>
+
+                <div class="trailer-card">
+                    <div class="trailer-image">
+                        <img src="media/trasporto_coils.png" alt="<?php echo t('trailer_coils'); ?>" loading="lazy">
+                    </div>
+                    <h3><?php echo t('trailer_coils'); ?></h3>
+                    <p><?php echo t('trailer_coils_desc'); ?></p>
+                </div>
+
+                <div class="trailer-card">
+                    <div class="trailer-image">
+                        <img src="media/Porta_container.png" alt="<?php echo t('trailer_container'); ?>" loading="lazy">
+                    </div>
+                    <h3><?php echo t('trailer_container'); ?></h3>
+                    <p><?php echo t('trailer_container_desc'); ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Partners Section -->
     <section class="partners-section">
         <div class="container">
