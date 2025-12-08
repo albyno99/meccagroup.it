@@ -1,4 +1,9 @@
 <?php
+// Prevent PHP errors from being displayed as HTML
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
+
 require_once 'includes/language.php';
 require_once 'includes/phpmailer/PHPMailer.php';
 require_once 'includes/phpmailer/SMTP.php';
@@ -27,11 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $response = ['success' => false, 'message' => ''];
 
 try {
+    // Get current language from POST or use default
+    $currentLang = trim($_POST['lang'] ?? 'it');
+    
     // Verify reCAPTCHA
     $recaptchaToken = $_POST['recaptcha_token'] ?? '';
     
     if (empty($recaptchaToken)) {
-        $response['message'] = $lang === 'en' ? 'reCAPTCHA verification failed' : 'Verifica reCAPTCHA fallita';
+        error_log('reCAPTCHA: Token is empty');
+        $response['message'] = $currentLang === 'en' ? 'reCAPTCHA verification failed' : 'Verifica reCAPTCHA fallita';
         echo json_encode($response);
         exit;
     }
@@ -57,8 +66,21 @@ try {
     $recaptchaResult = file_get_contents($recaptchaUrl, false, $recaptchaContext);
     $recaptchaJson = json_decode($recaptchaResult);
     
-    if (!$recaptchaJson->success || $recaptchaJson->score < 0.5) {
-        $response['message'] = $lang === 'en' ? 'reCAPTCHA verification failed. Please try again.' : 'Verifica reCAPTCHA fallita. Riprova.';
+    // Log the reCAPTCHA response for debugging
+    error_log('reCAPTCHA response: ' . json_encode($recaptchaJson));
+    
+    if (!$recaptchaJson || !$recaptchaJson->success) {
+        $errorCodes = isset($recaptchaJson->{'error-codes'}) ? implode(', ', $recaptchaJson->{'error-codes'}) : 'unknown';
+        error_log('reCAPTCHA failed: ' . $errorCodes);
+        $response['message'] = $currentLang === 'en' ? 'reCAPTCHA verification failed. Please try again.' : 'Verifica reCAPTCHA fallita. Riprova.';
+        echo json_encode($response);
+        exit;
+    }
+    
+    // Check score only if it exists (v3)
+    if (isset($recaptchaJson->score) && $recaptchaJson->score < 0.5) {
+        error_log('reCAPTCHA score too low: ' . $recaptchaJson->score);
+        $response['message'] = $currentLang === 'en' ? 'reCAPTCHA verification failed. Please try again.' : 'Verifica reCAPTCHA fallita. Riprova.';
         echo json_encode($response);
         exit;
     }
@@ -73,38 +95,37 @@ try {
     $messaggio = trim($_POST['messaggio'] ?? '');
     $privacy = isset($_POST['privacy']);
     $newsletter = isset($_POST['newsletter']);
-    $lang = trim($_POST['lang'] ?? 'it');
     
     // Validation
     $errors = [];
     
     if (empty($nome)) {
-        $errors[] = $lang === 'en' ? 'Name is required' : 'Nome è obbligatorio';
+        $errors[] = $currentLang === 'en' ? 'Name is required' : 'Nome è obbligatorio';
     }
     
     if (empty($cognome)) {
-        $errors[] = $lang === 'en' ? 'Surname is required' : 'Cognome è obbligatorio';
+        $errors[] = $currentLang === 'en' ? 'Surname is required' : 'Cognome è obbligatorio';
     }
     
     if (empty($email)) {
-        $errors[] = $lang === 'en' ? 'Email is required' : 'Email è obbligatoria';
+        $errors[] = $currentLang === 'en' ? 'Email is required' : 'Email è obbligatoria';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = $lang === 'en' ? 'Please enter a valid email address' : 'Inserisci un indirizzo email valido';
+        $errors[] = $currentLang === 'en' ? 'Please enter a valid email address' : 'Inserisci un indirizzo email valido';
     }
     
     if (empty($messaggio)) {
-        $errors[] = $lang === 'en' ? 'Message is required' : 'Messaggio è obbligatorio';
+        $errors[] = $currentLang === 'en' ? 'Message is required' : 'Messaggio è obbligatorio';
     }
     
     if (!$privacy) {
-        $errors[] = $lang === 'en' ? 'You must accept the privacy policy' : 'Devi accettare la privacy policy';
+        $errors[] = $currentLang === 'en' ? 'You must accept the privacy policy' : 'Devi accettare la privacy policy';
     }
     
     // Phone validation (if provided)
     if (!empty($telefono)) {
         $telefono = preg_replace('/[^0-9+\-\s\(\)]/', '', $telefono);
         if (strlen($telefono) < 8) {
-            $errors[] = $lang === 'en' ? 'Please enter a valid phone number' : 'Inserisci un numero di telefono valido';
+            $errors[] = $currentLang === 'en' ? 'Please enter a valid phone number' : 'Inserisci un numero di telefono valido';
         }
     }
     
@@ -115,7 +136,7 @@ try {
     }
     
     // Prepare email content
-    $subject = $lang === 'en' ? 'New Contact Request from Website' : 'Nuova richiesta di contatto dal sito web';
+    $subject = $currentLang === 'en' ? 'New Contact Request from Website' : 'Nuova richiesta di contatto dal sito web';
     
     $emailContent = "
     <html>
@@ -135,7 +156,7 @@ try {
         </div>
         <div class='content'>
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Name:' : 'Nome:') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Name:' : 'Nome:') . "</span>
                 <span class='value'>$nome $cognome</span>
             </div>
             <div class='field'>
@@ -146,7 +167,7 @@ try {
     if (!empty($telefono)) {
         $emailContent .= "
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Phone:' : 'Telefono:') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Phone:' : 'Telefono:') . "</span>
                 <span class='value'>$telefono</span>
             </div>";
     }
@@ -154,32 +175,31 @@ try {
     if (!empty($azienda)) {
         $emailContent .= "
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Company:' : 'Azienda:') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Company:' : 'Azienda:') . "</span>
                 <span class='value'>$azienda</span>
             </div>";
     }
     
     if (!empty($servizio)) {
         $serviceLabels = [
-            'autotrasporti' => $lang === 'en' ? 'Transportation' : 'Autotrasporti',
-            'materiali-edili' => $lang === 'en' ? 'Building Materials' : 'Materiali Edili',
-            'noleggio-attrezzature' => $lang === 'en' ? 'Equipment Rental' : 'Noleggio Attrezzature',
-            'noleggio-attrezzature' => $lang === 'en' ? 'Equipment Rental' : 'Noleggio Attrezzature',
-            'altro' => $lang === 'en' ? 'Other' : 'Altro'
+            'autotrasporti' => $currentLang === 'en' ? 'Transportation' : 'Autotrasporti',
+            'materiali-edili' => $currentLang === 'en' ? 'Building Materials' : 'Materiali Edili',
+            'noleggio-attrezzature' => $currentLang === 'en' ? 'Equipment Rental' : 'Noleggio Attrezzature',
+            'altro' => $currentLang === 'en' ? 'Other' : 'Altro'
         ];
         
         $serviceName = $serviceLabels[$servizio] ?? $servizio;
         
         $emailContent .= "
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Service:' : 'Servizio:') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Service:' : 'Servizio:') . "</span>
                 <span class='value'>$serviceName</span>
             </div>";
     }
     
     $emailContent .= "
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Message:' : 'Messaggio:') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Message:' : 'Messaggio:') . "</span>
                 <div class='value' style='background: #f8f9fa; padding: 15px; border-left: 3px solid #1a365d; margin-top: 10px;'>
                     " . nl2br(htmlspecialchars($messaggio)) . "
                 </div>
@@ -188,19 +208,19 @@ try {
     if ($newsletter) {
         $emailContent .= "
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Newsletter subscription:' : 'Iscrizione newsletter:') . "</span>
-                <span class='value'>" . ($lang === 'en' ? 'Yes' : 'Sì') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Newsletter subscription:' : 'Iscrizione newsletter:') . "</span>
+                <span class='value'>" . ($currentLang === 'en' ? 'Yes' : 'Sì') . "</span>
             </div>";
     }
     
     $emailContent .= "
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Date:' : 'Data:') . "</span>
-                <span class='value'>" . date('d/m/Y H:i:s') . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Date:' : 'Data:') . "</span>
+                <span class='value'>" . date('Y-m-d H:i:s') . "</span>
             </div>
             <div class='field'>
-                <span class='label'>" . ($lang === 'en' ? 'Language:' : 'Lingua:') . "</span>
-                <span class='value'>" . strtoupper($lang) . "</span>
+                <span class='label'>" . ($currentLang === 'en' ? 'Language:' : 'Lingua:') . "</span>
+                <span class='value'>" . strtoupper($currentLang) . "</span>
             </div>
         </div>
     </body>
@@ -241,7 +261,7 @@ try {
         $mail->setFrom('lory@meccagroup.it', 'Mecca Group');
         $mail->addAddress($email, "$nome $cognome");
         
-        $confirmSubject = $lang === 'en' ? 'Thank you for contacting Mecca Group' : 'Grazie per aver contattato Mecca Group';
+        $confirmSubject = $currentLang === 'en' ? 'Thank you for contacting Mecca Group' : 'Grazie per aver contattato Mecca Group';
         
         $confirmContent = "
         <html>
@@ -258,15 +278,15 @@ try {
                 <h2>$confirmSubject</h2>
             </div>
             <div class='content'>
-                <p>" . ($lang === 'en' ? "Dear $nome," : "Gentile $nome,") . "</p>
-                <p>" . ($lang === 'en' ? 
+                <p>" . ($currentLang === 'en' ? "Dear $nome," : "Gentile $nome,") . "</p>
+                <p>" . ($currentLang === 'en' ? 
                     'Thank you for contacting us. We have received your message and will respond as soon as possible, usually within 24 hours.' : 
                     'Grazie per averci contattato. Abbiamo ricevuto il tuo messaggio e ti risponderemo il prima possibile, solitamente entro 24 ore.') . "</p>
-                <p>" . ($lang === 'en' ? 
+                <p>" . ($currentLang === 'en' ? 
                     'If you need immediate assistance, you can call us at:' : 
                     'Se hai bisogno di assistenza immediata, puoi chiamarci al:') . "</p>
                 <p style='font-weight: bold;'>+39 331 625 47 83 / +39 0141 943008</p>
-                <p>" . ($lang === 'en' ? 
+                <p>" . ($currentLang === 'en' ? 
                     'Best regards,<br>Mecca Group Team' : 
                     'Cordiali saluti,<br>Il Team di Mecca Group') . "</p>
             </div>
@@ -282,7 +302,6 @@ try {
         $mail->AltBody = strip_tags($confirmContent);
         
         $mail->send();
-        $mail->send();
         
         // Log the contact for analytics (optional)
         $logData = [
@@ -290,7 +309,7 @@ try {
             'name' => $nome . ' ' . $cognome,
             'email' => $email,
             'service' => $servizio,
-            'language' => $lang,
+            'language' => $currentLang,
             'newsletter' => $newsletter ? 'yes' : 'no'
         ];
         
@@ -298,20 +317,20 @@ try {
         // file_put_contents('logs/contacts.log', json_encode($logData) . "\n", FILE_APPEND);
         
         $response['success'] = true;
-        $response['message'] = $lang === 'en' ? 
+        $response['message'] = $currentLang === 'en' ? 
             'Thank you for your message! We will respond within 24 hours.' : 
             'Grazie per il tuo messaggio! Ti risponderemo entro 24 ore.';
             
     } catch (Exception $e) {
         error_log('PHPMailer error: ' . $mail->ErrorInfo);
-        $response['message'] = $lang === 'en' ? 
+        $response['message'] = $currentLang === 'en' ? 
             'There was an error sending your message. Please try again.' : 
             'Si è verificato un errore nell\'invio del messaggio. Riprova più tardi.';
     }
     
 } catch (Exception $e) {
     error_log('Contact form error: ' . $e->getMessage());
-    $response['message'] = $lang === 'en' ? 
+    $response['message'] = $currentLang === 'en' ? 
         'A technical error occurred. Please try again.' : 
         'Si è verificato un errore tecnico. Riprova più tardi.';
 }
