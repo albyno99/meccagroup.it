@@ -10,8 +10,7 @@
 All rights reserved.
 
 **Developed by:**
-- Alberto Sesia (albertosesia@gmail.com)
-- Michela Ferraro (michelaferraro02@gmail.com)
+- Alberto Sesia (info@albertosesia.it)
 
 ---
 
@@ -60,8 +59,7 @@ This License Agreement shall be governed by and construed in accordance with the
 Tutti i diritti riservati.
 
 **Sviluppato da:**
-- Alberto Sesia (albertosesia@gmail.com)
-- Michela Ferraro (michelaferraro02@gmail.com)
+- Alberto Sesia (info@albertosesia.it)
 
 ---
 
@@ -109,8 +107,7 @@ Questo Contratto di Licenza sarà disciplinato e interpretato in conformità all
 
 *Per domande riguardanti questa licenza, contattare:*  
 **Mecca Group S.r.l.**  
-*Email: info@meccagroup.it*
+*Email: lory@meccagroup.it*
 
 *Per questioni tecniche relative allo sviluppo:*  
-**Alberto Sesia:** albertosesia@gmail.com  
-**Michela Ferraro:** michelaferraro02@gmail.com
+**Alberto Sesia:** info@albertosesia.it
