@@ -1,265 +1,183 @@
-# Mecca Group - Sito Web Aziendale
+# Mecca Group
 
-Un sito web moderno e multilingue per Mecca Group, azienda specializzata in autotrasporti e materiali edili.
+Sito istituzionale di Mecca Group, azienda di autotrasporti e materiali edili
+con sede a Cantarana (AT). Il sito è bilingue (italiano/inglese) e include
+una pagina contatti con form lato server.
 
-## 🚀 Caratteristiche
+Repository privato. Per le segnalazioni di sicurezza vedi `SECURITY.md`.
 
-### ✨ Design e UX
-- **Design moderno e responsive** - Ottimizzato per tutti i dispositivi
-- **Animazioni fluide** - Transizioni CSS e JavaScript per un'esperienza coinvolgente
-- **Interfaccia pulita** - Layout minimalista con focus sui contenuti
-- **Gradients e colori aziendali** - Palette colori coerente con l'identità del brand
+## Stack
 
-### 🌍 Sistema Multilingue
-- **Rilevamento automatico lingua** - Basato sul browser dell'utente
-- **Lingua italiana** per browser italiani
-- **Lingua inglese** per tutti gli altri browser
-- **Selettore lingua** nel header con bandiere SVG
-- **URL SEO-friendly** con prefissi `/it/` e `/en/`
+PHP "vanilla", senza framework e senza build step. Nessuna dipendenza Composer
+e nessuna toolchain JavaScript: i file sono serviti come stanno. L'unica
+libreria di terze parti inclusa nel repo è PHPMailer 6.9.x (in
+`includes/phpmailer/`), usata per l'invio dei messaggi del form contatti via
+SMTP.
 
-### 🎯 SEO Ottimizzato al 1000%
-- **Meta tag dinamici** per ogni pagina e lingua
-- **Structured Data (Schema.org)** per migliore indicizzazione
-- **Open Graph tags** per social media
-- **Twitter Cards** per condivisioni Twitter
-- **Canonical URLs** e hreflang per gestione multilingue
-- **Sitemap XML** generata dinamicamente
-- **Meta descriptions** ottimizzate per ogni pagina
+Requisiti per girare:
 
-### 🍪 Cookie Compliance & GDPR
-- **Banner cookie interattivo** conforme alle normative EU
-- **Gestione granulare consensi** - Necessari vs Analytics
-- **Pannello impostazioni avanzate** per utenti
-- **Persistenza preferenze** con localStorage
-- **Pagine legali complete** - Privacy, Cookie Policy, Terms of Service
-- **Sistema multilingue** per banner e preferenze
+- PHP 7.4 o superiore (consigliato 8.1+)
+- Apache con `mod_rewrite`, `mod_headers`, `mod_deflate`, `mod_expires` e
+  `AllowOverride All` sulla directory del sito
+- Connessione outbound SMTP (porta 587) per Gmail
+- HTTPS in produzione (è obbligatorio: il sito impone HSTS via `.htaccess`)
 
-### 📱 Responsive Design
-- **Mobile-first approach** con CSS Grid e Flexbox
-- **Breakpoints ottimizzati** per dispositivi mobili, tablet e desktop
-- **Touch-friendly** con pulsanti e menu ottimizzati per touch
-- **Performance mobile** ottimizzata
+## Sviluppo locale
 
-## 📂 Struttura del Progetto
+Non c'è build né `npm install`. Basta un web server PHP nella root:
+
+```bash
+php -S localhost:8000
+```
+
+Nota che il built-in server di PHP non legge `.htaccess`, quindi in dev:
+
+- gli `ErrorDocument` per 404 / 500 non vengono applicati;
+- gli header di sicurezza definiti nel `.htaccess` non vengono emessi;
+- file come `.env` sono raggiungibili via HTTP (in produzione Apache li
+  blocca).
+
+Per testare le ErrorDocument e gli header di sicurezza, puntare un Apache
+locale (MAMP, XAMPP, Docker) alla directory del progetto.
+
+Per forzare la lingua durante lo sviluppo basta passarla come parametro
+query: `?lang=it` o `?lang=en`.
+
+## Struttura
 
 ```
 meccagroup.it/
-├── index.php              # Homepage multilingue
-├── about-us.php           # Chi siamo
-├── services.php           # Servizi
-├── contact.php            # Contatti con form
-├── process-contact.php    # Processamento form contatti
-├── terms-of-service.php   # Termini e condizioni
-├── privacy-policy.php     # Informativa privacy GDPR
-├── cookie-policy.php      # Cookie policy e gestione
-├── 404.php               # Pagina errore 404
-├── 500.php               # Pagina errore 500
-├── sitemap.xml           # Sitemap XML con pagine legali
-├── .htaccess             # Configurazione Apache
+├── index.php                 Homepage
+├── about-us.php              Chi siamo
+├── services.php              Servizi (Autotrasporti / Materiali Edili)
+├── contact.php               Form di contatto
+├── process-contact.php       Endpoint POST del form (JSON)
+├── cookie-policy.php
+├── privacy-policy.php
+├── terms-of-service.php
+├── 404.php / 500.php         Mappate via .htaccess ErrorDocument
+├── sitemap.xml               Statica
+├── robots.txt
+├── site.webmanifest
+├── .htaccess                 Security headers, HTTPS redirect, deny rules
 │
 ├── includes/
-│   ├── language.php      # Sistema di gestione lingue
-│   ├── header.php        # Header comune con traduzioni cookie
-│   └── footer.php        # Footer con link legali
+│   ├── language.php          LanguageManager + sessione PHP
+│   ├── header.php            Navbar e bridge traduzioni cookie banner
+│   ├── footer.php
+│   ├── env.php               Parser .env minimale
+│   ├── csrf.php              Token CSRF in sessione
+│   ├── rate_limit.php        Rate limiter file-based per IP
+│   └── phpmailer/            PHPMailer 6.9.x
 │
 ├── lang/
-│   ├── it.php           # Traduzioni italiane (+ cookie/legal)
-│   └── en.php           # Traduzioni inglesi (+ cookie/legal)
+│   ├── it.php                Traduzioni italiane (default)
+│   └── en.php                Traduzioni inglesi
 │
-├── css/
-│   └── style.css        # Stili CSS + cookie banner & pagine legali
-│
+├── css/style.css
 ├── js/
-│   ├── script.js        # JavaScript principale
-│   ├── contact.js       # JavaScript pagina contatti
-│   └── cookies.js       # Gestione cookie e consensi GDPR
-│
-└── media/
-    ├── flag-it.svg      # Bandiera italiana
-    ├── flag-en.svg      # Bandiera inglese
-    └── ...              # Altre immagini
+│   ├── script.js             Interazioni globali (menu, animazioni)
+│   ├── contact.js            Validazione e submit form
+│   └── cookies.js            Banner cookie GDPR
+└── media/                    Immagini, loghi, bandiere SVG
 ```
 
-## 🔧 Tecnologie Utilizzate
+## Sistema di traduzioni
 
-### Backend
-- **PHP 7+** per la gestione server-side
-- **Sistema di gestione lingue** personalizzato
-- **Form processing** con validazione e invio email
-
-### Frontend
-- **HTML5** semantico con accessibilità
-- **CSS3** con variabili CSS e moderne tecniche di layout
-- **JavaScript ES6+** per interattività e gestione cookie
-- **Google Fonts** (Montserrat) per tipografia
-- **Sistema cookie GDPR** completamente custom
-
-### Compliance & Legal
-- **GDPR compliant** - Gestione consensi e diritti utente
-- **Cookie Law EU** - Banner e gestione preferenze
-- **Termini e condizioni** personalizzati per l'azienda
-- **Privacy policy** dettagliata con procedure e diritti
-- **Accessibilità web** secondo standard WCAG
-
-### SEO e Performance
-- **Apache .htaccess** per ottimizzazioni server
-- **Gzip compression** per file statici
-- **Browser caching** configurato
-- **Security headers** implementati
-
-## 🌐 Sistema di Traduzione
-
-Il sistema di traduzione è basato su una classe PHP che:
-
-1. **Rileva automaticamente la lingua** dal browser
-2. **Carica il file di traduzione** appropriato
-3. **Genera meta tag SEO** specifici per lingua
-4. **Crea structured data** localizzati
-5. **Gestisce fallback** alla lingua italiana
-
-### Utilizzo delle Traduzioni
+`includes/language.php` espone una classe `LanguageManager` istanziata come
+globale `$lang` e una funzione helper `t($chiave, $default = '')`. Le
+traduzioni stanno in `lang/it.php` e `lang/en.php` come array PHP semplice.
 
 ```php
-// Utilizzare in qualsiasi pagina PHP
-echo t('chiave_traduzione');
-
-// Esempio
-echo t('nav_home');        // Output: "Home" o "Casa"
-echo t('meta_description'); // Meta description localizzata
+<?php require_once 'includes/language.php'; ?>
+<h1><?php echo t('hero_title_main'); ?></h1>
+<a href="<?php echo $lang->getPageUrl('contact'); ?>">
+    <?php echo t('nav_contact'); ?>
+</a>
 ```
 
-## 📋 Caratteristiche delle Pagine
+La lingua viene determinata in quest'ordine: parametro `?lang=`, preferenza
+salvata in sessione, header `Accept-Language` del browser. Per
+aggiungere una pagina nuova bisogna estendere lo `switch` in
+`generateMetaTags()` e la mappa `$pages` in `getPageUrl()` dentro
+`LanguageManager`.
 
-### 🏠 Homepage (index.php)
-- Hero section con video/immagine di sfondo
-- Sezione servizi con preview
-- Statistiche aziendali animate
-- Integrazione Instagram
-- Call-to-action ottimizzate
+Quando si aggiunge una stringa, va inserita in entrambi i file `lang/*.php`.
+Se manca, `t()` restituisce stringa vuota.
 
-### 👥 Chi Siamo (about-us.php)
-- Storia dell'azienda con timeline
-- Valori aziendali con cards
-- Statistiche e numeri
-- Team presentation
+## Form di contatto
 
-### 🚛 Servizi (services.php)
-- Due divisioni principali: Autotrasporti e Materiali Edili
-- Elenco dettagliato caratteristiche
-- Processo di lavoro step-by-step
-- Vantaggi competitivi
+`process-contact.php` riceve la POST e applica, in ordine, questi controlli:
+same-origin guard sull'header `Origin`/`Referer`, validazione del token CSRF
+in sessione, rate limit di 5 invii per ora per IP, verifica reCAPTCHA v3 con
+soglia configurabile, validazione campi più whitelist della lingua. Se tutto
+passa, invia due email via PHPMailer/SMTP: una notifica all'azienda e una di
+conferma all'utente.
 
-### 📞 Contatti (contact.php)
-- Form di contatto avanzato con validazione
-- Mappa Google integrata
-- Informazioni di contatto
-- FAQ section interattiva
-- Gestione errori e conferme
+Il rate limiter scrive file JSON in `cache/rate-limit/`. La directory deve
+essere scrivibile dall'utente Apache; se non lo è, il limiter va in
+fail-open e logga l'errore via `error_log`.
 
-## 🛠️ Setup e Installazione
+## Configurazione
 
-### Requisiti
-- Web server con supporto PHP 7+
-- Supporto per .htaccess (Apache)
-- Supporto per invio email PHP
+Le credenziali (SMTP, reCAPTCHA, destinatari) vivono in `.env` nella root.
+Il file è gitignored e bloccato da `.htaccess`. Per avviare un'istanza,
+copiare `.env.example` in `.env` e compilare i valori.
 
-### Installazione
-1. Carica tutti i file sul server web
-2. Configura le email in `process-contact.php`
-3. Verifica che .htaccess sia attivo
-4. Testa il sistema di lingua
-5. Aggiorna le coordinate Google Maps se necessario
+```
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=
+SMTP_PASSWORD=
+SMTP_FROM_EMAIL=
+SMTP_FROM_NAME="NoReply - MeccaGroup"
+CONTACT_TO_EMAIL=
+CONTACT_TO_NAME="Mecca Group"
+CONTACT_CC_EMAIL=
+RECAPTCHA_SECRET=
+RECAPTCHA_MIN_SCORE=0.5
+```
 
-### Configurazione Email
-In `process-contact.php` modificare:
+Il parser è in `includes/env.php` e si auto-carica al primo
+`require_once`. Niente Composer, niente librerie esterne.
+
+Per leggere una variabile dal codice:
+
 ```php
-$to = 'info@meccagroup.it';  // Email destinatario
+require_once 'includes/env.php';
+$secret = env('RECAPTCHA_SECRET');
+$port   = (int) env('SMTP_PORT', 587);
 ```
 
-## 🎨 Customizzazione
+## Sicurezza
 
-### Colori del Brand
-Le variabili CSS sono definite in `:root`:
-```css
-:root {
-    --primary-color: #1a365d;
-    --secondary-color: #2c5aa0;
-    --accent-color: #e53e3e;
-    --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2c5aa0 100%);
-}
-```
+Il `.htaccess` imposta HSTS, X-Frame-Options, X-Content-Type-Options,
+Referrer-Policy, Permissions-Policy, COOP/CORP e una Content Security Policy
+in modalità enforcing. Le sorgenti esterne ammesse sono Google reCAPTCHA,
+Google Fonts e l'iframe di Google Maps usato in `contact.php`. Aggiungere
+nuovi script di terze parti (analytics, tag manager, font CDN diversi,
+embed video) richiede di estendere la CSP, altrimenti il browser blocca le
+risorse.
 
-### Aggiungere Nuove Traduzioni
-1. Aggiungi la chiave in `lang/it.php` e `lang/en.php`
-2. Usa `t('nuova_chiave')` nelle pagine PHP
+Il cookie di sessione `MECCASESSID` è impostato `HttpOnly`, `SameSite=Lax`,
+con flag `Secure` automatico su HTTPS. La sessione è avviata centralmente
+in `includes/language.php`: non chiamare `session_start()` altrove.
 
-### Personalizzare Meta Tag
-Modifica il metodo `generateMetaTags()` in `includes/language.php`
+Sul form di contatti, il token CSRF viene generato in sessione tramite
+`csrf_token()` (in `includes/csrf.php`) e validato in costant-time con
+`hash_equals`. Lato JS non c'è codice dedicato: il token sta in un input
+hidden e viene raccolto da `new FormData(form)`.
 
-## 📊 Performance e SEO
+## Convenzioni
 
-### Ottimizzazioni Implementate
-- ✅ Compressione Gzip
-- ✅ Cache del browser
-- ✅ Immagini ottimizzate
-- ✅ CSS e JS minificati
-- ✅ Lazy loading
-- ✅ Structured data
-- ✅ Meta tag dinamici
-- ✅ URL semantici
+- Niente testo hardcoded nelle pagine: tutto passa da `t('chiave')` con la
+  voce in entrambi i file `lang/*.php`.
+- I link interni passano sempre da `$lang->getPageUrl('home' | 'about' |
+  'services' | 'contact' | 'terms' | 'privacy' | 'cookies')` per preservare
+  il parametro lingua.
+- `sitemap.xml` è statica: aggiornarla a mano quando si aggiunge una pagina.
+- Nessuna minificazione né bundling: CSS e JS sono i file sorgente.
 
-### Risultati Attesi
-- **PageSpeed Score**: 90+
-- **SEO Score**: 100/100
-- **Accessibility Score**: 95+
-- **Best Practices**: 100/100
+## Licenza
 
-## 🔒 Sicurezza
-
-### Misure Implementate
-- Security headers in .htaccess
-- Protezione file sensibili
-- Validazione input form
-- Sanitizzazione dati
-- Protezione CSRF
-- Content Security Policy
-
-## 📱 Compatibilità Browser
-
-### Supporto Completo
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
-
-### Supporto Mobile
-- iOS Safari 12+
-- Chrome Mobile 60+
-- Samsung Internet 8+
-
-## 🚀 Deploy e Manutenzione
-
-### Checklist Pre-Deploy
-- [ ] Test funzionalità multilingue
-- [ ] Verifica form di contatto
-- [ ] Test responsive su dispositivi
-- [ ] Controllo velocità caricamento
-- [ ] Verifica SEO con strumenti
-
-### Manutenzione Periodica
-- Backup regolari del database
-- Aggiornamenti PHP e server
-- Monitoraggio performance
-- Aggiornamento contenuti
-- Controllo broken links
-
-## 📞 Supporto
-
-Per supporto tecnico o modifiche:
-- Email: albertosesia@gmail.com
-- Documentazione: Questo README
-- Version control: Implementare Git per tracking modifiche
-
----
-
-**Mecca Group** - Trasporti e Materiali Edili dal 1985
+Rilasciato sotto licenza. Vedi `LICENSE.md`.
