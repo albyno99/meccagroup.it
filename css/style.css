@@ -10,8 +10,8 @@
     --primary-red: #e30613;
     --secondary-red: #e30613;
     --orange-red: #FF6B35;
-    --blue-green: #38B2AC;
-    --teal: #319795;
+    --blue-green: #29ABE2;
+    --teal: #1E88BD;
     
     /* Neutral Colors */
     --white: #FFFFFF;
@@ -2995,14 +2995,40 @@ body {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.35s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
 }
 
 .faq-answer p {
-    padding: 25px 30px;
+    padding: 22px 30px 28px;
     margin: 0;
-    line-height: 1.6;
     background: white;
+    color: var(--gray-800);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+}
+
+.faq-item.active .faq-answer p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-answer p a {
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.faq-answer p a:hover {
+    border-bottom-color: var(--primary-red);
 }
 
 /* Error Pages */
