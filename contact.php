@@ -1,4 +1,8 @@
-<?php require_once 'includes/language.php'; ?>
+<?php
+require_once 'includes/language.php';
+require_once 'includes/csrf.php';
+$csrfToken = csrf_token();
+?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang->getCurrentLanguage(); ?>">
 <head>
@@ -116,6 +120,7 @@
                 <form class="contact-form" id="contact-form" method="POST" action="process-contact.php">
                     <input type="hidden" name="lang" value="<?php echo $lang->getCurrentLanguage(); ?>">
                     <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+                    <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8'); ?>">
                     
                     <div class="form-row">
                         <div class="form-group">

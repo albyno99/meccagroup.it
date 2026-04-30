@@ -1,1 +1,8 @@
 .DS_Store
+CLAUDE.md
+.env
+.env.local
+*.log
+/cache/rate-limit/*
+!/cache/rate-limit/.gitkeep
+!/cache/.htaccess

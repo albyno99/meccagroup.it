@@ -4,7 +4,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
+require_once 'includes/env.php';
 require_once 'includes/language.php';
+require_once 'includes/csrf.php';
+require_once 'includes/rate_limit.php';
 require_once 'includes/phpmailer/PHPMailer.php';
 require_once 'includes/phpmailer/SMTP.php';
 require_once 'includes/phpmailer/Exception.php';
@@ -16,10 +19,24 @@ use PHPMailer\PHPMailer\Exception;
 // Set response header
 header('Content-Type: application/json');
 
-// Enable CORS if needed
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
+// Reject non-same-origin requests at the application layer.
+// (.htaccess fornisce gli header globali; qui blocchiamo POST cross-origin via Origin/Referer.)
+$rawHost     = $_SERVER['HTTP_HOST'] ?? '';
+$allowedHost = strtolower(explode(':', $rawHost, 2)[0]); // strip port
+$origin      = $_SERVER['HTTP_ORIGIN']  ?? '';
+$referer     = $_SERVER['HTTP_REFERER'] ?? '';
+$sameOrigin  = false;
+if ($origin !== '') {
+    $originHost = parse_url($origin, PHP_URL_HOST);
+    if ($originHost !== null) {
+        $sameOrigin = (strtolower($originHost) === $allowedHost);
+    }
+} elseif ($referer !== '') {
+    $refererHost = parse_url($referer, PHP_URL_HOST);
+    if ($refererHost !== null) {
+        $sameOrigin = (strtolower($refererHost) === $allowedHost);
+    }
+}
 
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -28,13 +45,42 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+if (!$sameOrigin) {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => 'Forbidden']);
+    exit;
+}
+
 // Initialize response
 $response = ['success' => false, 'message' => ''];
 
 try {
-    // Get current language from POST or use default
-    $currentLang = trim($_POST['lang'] ?? 'it');
-    
+    // Lingua: whitelist esplicita (no input arbitrario in HTML email body)
+    $rawLang = trim($_POST['lang'] ?? 'it');
+    $currentLang = in_array($rawLang, ['it', 'en'], true) ? $rawLang : 'it';
+
+    // CSRF
+    $csrfSubmitted = $_POST['csrf_token'] ?? '';
+    if (!csrf_validate($csrfSubmitted)) {
+        http_response_code(403);
+        $response['message'] = $currentLang === 'en'
+            ? 'Security validation failed. Please reload the page and try again.'
+            : 'Validazione di sicurezza fallita. Ricarica la pagina e riprova.';
+        echo json_encode($response);
+        exit;
+    }
+
+    // Rate limit: 5 invii / ora per IP
+    $clientIp = rate_limit_client_ip();
+    if (!rate_limit_check('contact_form', $clientIp, 5, 3600)) {
+        http_response_code(429);
+        $response['message'] = $currentLang === 'en'
+            ? 'Too many requests. Please try again later.'
+            : 'Troppe richieste. Riprova più tardi.';
+        echo json_encode($response);
+        exit;
+    }
+
     // Verify reCAPTCHA
     $recaptchaToken = $_POST['recaptcha_token'] ?? '';
     
@@ -46,7 +92,7 @@ try {
     }
     
     // Verify token with Google
-    $recaptchaSecret = '6LcrjCUsAAAAAMzR4xRBpcLYE_0s_eCMdyExGZRs';
+    $recaptchaSecret = env('RECAPTCHA_SECRET');
     $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
     $recaptchaData = [
         'secret' => $recaptchaSecret,
@@ -78,7 +124,8 @@ try {
     }
     
     // Check score only if it exists (v3)
-    if (isset($recaptchaJson->score) && $recaptchaJson->score < 0.5) {
+    $minScore = (float) env('RECAPTCHA_MIN_SCORE', 0.5);
+    if (isset($recaptchaJson->score) && $recaptchaJson->score < $minScore) {
         error_log('reCAPTCHA score too low: ' . $recaptchaJson->score);
         $response['message'] = $currentLang === 'en' ? 'reCAPTCHA verification failed. Please try again.' : 'Verifica reCAPTCHA fallita. Riprova.';
         echo json_encode($response);
@@ -232,18 +279,26 @@ try {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = env('SMTP_HOST', 'smtp.gmail.com');
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'martina.meccagroup@gmail.com';
-        $mail->Password   = 'gqewjbluhovpzltn';
+        $mail->Username   = env('SMTP_USERNAME');
+        $mail->Password   = env('SMTP_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Port       = (int) env('SMTP_PORT', 587);
         $mail->CharSet    = 'UTF-8';
-        
+
+        $fromEmail = env('SMTP_FROM_EMAIL');
+        $fromName  = env('SMTP_FROM_NAME', 'Mecca Group Website');
+        $toEmail   = env('CONTACT_TO_EMAIL');
+        $toName    = env('CONTACT_TO_NAME', 'Mecca Group');
+        $ccEmail   = env('CONTACT_CC_EMAIL');
+
         // Recipients - Email to company
-        $mail->setFrom('lory@meccagroup.it', 'Mecca Group Website');
-        $mail->addAddress('lory@meccagroup.it', 'Mecca Group');
-        $mail->addCC('martina.meccagroup@gmail.com', 'Mecca Group');
+        $mail->setFrom($fromEmail, $fromName);
+        $mail->addAddress($toEmail, $toName);
+        if (!empty($ccEmail)) {
+            $mail->addCC($ccEmail, $toName);
+        }
         $mail->addReplyTo($email, "$nome $cognome");
         
         // Content
@@ -258,7 +313,8 @@ try {
         // Send confirmation email to user
         $mail->clearAddresses();
         $mail->clearReplyTos();
-        $mail->setFrom('lory@meccagroup.it', 'Mecca Group');
+        $mail->clearCCs();
+        $mail->setFrom($fromEmail, $fromName);
         $mail->addAddress($email, "$nome $cognome");
         
         $confirmSubject = $currentLang === 'en' ? 'Thank you for contacting Mecca Group' : 'Grazie per aver contattato Mecca Group';

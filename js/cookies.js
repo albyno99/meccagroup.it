@@ -90,31 +90,52 @@
         },
         
         createBanner: function() {
+            const t = this.translations;
+            const self = this;
+
             const banner = document.createElement('div');
             banner.className = 'cookie-banner';
-            banner.innerHTML = `
-                <div class="cookie-banner-content">
-                    <div class="cookie-banner-text">
-                        <h3>${this.translations.title}</h3>
-                        <p>${this.translations.message}</p>
-                    </div>
-                    <div class="cookie-banner-actions">
-                        <button class="cookie-btn cookie-btn-accept" onclick="CookieConsent.acceptAll()">
-                            ${this.translations.accept}
-                        </button>
-                        <button class="cookie-btn cookie-btn-settings" onclick="CookieConsent.showSettings()">
-                            ${this.translations.settings}
-                        </button>
-                        <button class="cookie-btn cookie-btn-reject" onclick="CookieConsent.rejectAll()">
-                            ${this.translations.reject}
-                        </button>
-                        <a href="/cookie-policy.php" class="cookie-learn-more" target="_blank">
-                            ${this.translations.learnMore}
-                        </a>
-                    </div>
-                </div>
-            `;
-            
+
+            const content = document.createElement('div');
+            content.className = 'cookie-banner-content';
+
+            const textWrap = document.createElement('div');
+            textWrap.className = 'cookie-banner-text';
+            const h3 = document.createElement('h3');
+            h3.textContent = t.title;
+            const p = document.createElement('p');
+            p.textContent = t.message;
+            textWrap.appendChild(h3);
+            textWrap.appendChild(p);
+
+            const actions = document.createElement('div');
+            actions.className = 'cookie-banner-actions';
+
+            const makeBtn = function(cls, label, handler) {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'cookie-btn ' + cls;
+                b.textContent = label;
+                b.addEventListener('click', handler);
+                return b;
+            };
+
+            actions.appendChild(makeBtn('cookie-btn-accept',   t.accept,   function() { self.acceptAll(); }));
+            actions.appendChild(makeBtn('cookie-btn-settings', t.settings, function() { self.showSettings(); }));
+            actions.appendChild(makeBtn('cookie-btn-reject',   t.reject,   function() { self.rejectAll(); }));
+
+            const learnMore = document.createElement('a');
+            learnMore.href = '/cookie-policy.php';
+            learnMore.className = 'cookie-learn-more';
+            learnMore.target = '_blank';
+            learnMore.rel = 'noopener noreferrer';
+            learnMore.textContent = t.learnMore;
+            actions.appendChild(learnMore);
+
+            content.appendChild(textWrap);
+            content.appendChild(actions);
+            banner.appendChild(content);
+
             return banner;
         },
         
@@ -130,51 +151,108 @@
         },
         
         createSettingsModal: function(settings) {
+            const t = this.translations;
+            const self = this;
+
             const modal = document.createElement('div');
             modal.className = 'cookie-settings-modal';
-            modal.innerHTML = `
-                <div class="cookie-settings-overlay" onclick="CookieConsent.hideSettings()"></div>
-                <div class="cookie-settings-content">
-                    <div class="cookie-settings-header">
-                        <h2>${this.translations.settingsTitle}</h2>
-                        <button class="cookie-settings-close" onclick="CookieConsent.hideSettings()">×</button>
-                    </div>
-                    <div class="cookie-settings-body">
-                        <p>${this.translations.settingsDescription}</p>
-                        
-                        <div class="cookie-category">
-                            <div class="cookie-category-header">
-                                <label class="cookie-toggle">
-                                    <input type="checkbox" checked disabled>
-                                    <span class="toggle-slider"></span>
-                                    <span class="toggle-label">${this.translations.necessaryTitle}</span>
-                                </label>
-                            </div>
-                            <p class="cookie-category-description">${this.translations.necessaryDescription}</p>
-                        </div>
-                        
-                        <div class="cookie-category">
-                            <div class="cookie-category-header">
-                                <label class="cookie-toggle">
-                                    <input type="checkbox" id="analytics-toggle" ${settings.analytics ? 'checked' : ''}>
-                                    <span class="toggle-slider"></span>
-                                    <span class="toggle-label">${this.translations.analyticsTitle}</span>
-                                </label>
-                            </div>
-                            <p class="cookie-category-description">${this.translations.analyticsDescription}</p>
-                        </div>
-                    </div>
-                    <div class="cookie-settings-footer">
-                        <button class="cookie-btn cookie-btn-accept" onclick="CookieConsent.saveSettings()">
-                            ${this.translations.save}
-                        </button>
-                        <button class="cookie-btn cookie-btn-secondary" onclick="CookieConsent.acceptSelected()">
-                            ${this.translations.acceptSelected}
-                        </button>
-                    </div>
-                </div>
-            `;
-            
+
+            const overlay = document.createElement('div');
+            overlay.className = 'cookie-settings-overlay';
+            overlay.addEventListener('click', function() { self.hideSettings(); });
+
+            const wrap = document.createElement('div');
+            wrap.className = 'cookie-settings-content';
+
+            // Header
+            const header = document.createElement('div');
+            header.className = 'cookie-settings-header';
+            const h2 = document.createElement('h2');
+            h2.textContent = t.settingsTitle;
+            const closeBtn = document.createElement('button');
+            closeBtn.type = 'button';
+            closeBtn.className = 'cookie-settings-close';
+            closeBtn.textContent = '×'; // ×
+            closeBtn.setAttribute('aria-label', 'Close');
+            closeBtn.addEventListener('click', function() { self.hideSettings(); });
+            header.appendChild(h2);
+            header.appendChild(closeBtn);
+
+            // Body
+            const body = document.createElement('div');
+            body.className = 'cookie-settings-body';
+            const desc = document.createElement('p');
+            desc.textContent = t.settingsDescription;
+            body.appendChild(desc);
+
+            const makeCategory = function(title, description, checkboxAttrs) {
+                const cat = document.createElement('div');
+                cat.className = 'cookie-category';
+                const head = document.createElement('div');
+                head.className = 'cookie-category-header';
+                const label = document.createElement('label');
+                label.className = 'cookie-toggle';
+
+                const input = document.createElement('input');
+                input.type = 'checkbox';
+                if (checkboxAttrs.id) input.id = checkboxAttrs.id;
+                if (checkboxAttrs.checked) input.checked = true;
+                if (checkboxAttrs.disabled) input.disabled = true;
+
+                const slider = document.createElement('span');
+                slider.className = 'toggle-slider';
+                const labelText = document.createElement('span');
+                labelText.className = 'toggle-label';
+                labelText.textContent = title;
+
+                label.appendChild(input);
+                label.appendChild(slider);
+                label.appendChild(labelText);
+                head.appendChild(label);
+
+                const descEl = document.createElement('p');
+                descEl.className = 'cookie-category-description';
+                descEl.textContent = description;
+
+                cat.appendChild(head);
+                cat.appendChild(descEl);
+                return cat;
+            };
+
+            body.appendChild(makeCategory(
+                t.necessaryTitle,
+                t.necessaryDescription,
+                { checked: true, disabled: true }
+            ));
+            body.appendChild(makeCategory(
+                t.analyticsTitle,
+                t.analyticsDescription,
+                { id: 'analytics-toggle', checked: !!settings.analytics }
+            ));
+
+            // Footer
+            const footer = document.createElement('div');
+            footer.className = 'cookie-settings-footer';
+
+            const makeBtn = function(cls, label, handler) {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'cookie-btn ' + cls;
+                b.textContent = label;
+                b.addEventListener('click', handler);
+                return b;
+            };
+
+            footer.appendChild(makeBtn('cookie-btn-accept',    t.save,           function() { self.saveSettings(); }));
+            footer.appendChild(makeBtn('cookie-btn-secondary', t.acceptSelected, function() { self.acceptSelected(); }));
+
+            wrap.appendChild(header);
+            wrap.appendChild(body);
+            wrap.appendChild(footer);
+
+            modal.appendChild(overlay);
+            modal.appendChild(wrap);
+
             return modal;
         },
         
