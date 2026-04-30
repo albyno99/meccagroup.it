@@ -113,11 +113,11 @@
                     </div>
                 </div>
                 <div class="service-image-container">
-                    <img src="media/mecca_autotrasporti_camion.png" alt="<?php echo t('nav_autotrasporti'); ?>" class="service-main-image">
+                    <img src="media/foto-21.jpg" alt="<?php echo t('nav_autotrasporti'); ?>" class="service-main-image">
                     <div class="service-gallery">
-                        <img src="media/autotrasporti_1.png" alt="<?php echo t('nav_autotrasporti'); ?> 1" class="gallery-thumb">
-                        <img src="media/autotrasporti_2.png" alt="<?php echo t('nav_autotrasporti'); ?> 2" class="gallery-thumb">
-                        <img src="media/autotrasporti_3.png" alt="<?php echo t('nav_autotrasporti'); ?> 3" class="gallery-thumb">
+                        <img src="media/foto-12.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 1" class="gallery-thumb">
+                        <img src="media/foto-4.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 2" class="gallery-thumb">
+                        <img src="media/foto-23.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 3" class="gallery-thumb">
                     </div>
                 </div>
             </div>
@@ -137,11 +137,11 @@
 
             <div class="service-content-grid">
                 <div class="service-image-container">
-                    <img src="media/bricks_1.png" alt="<?php echo t('nav_materiali_edili'); ?>" class="service-main-image">
+                    <img src="media/foto-41.jpg" alt="<?php echo t('nav_materiali_edili'); ?>" class="service-main-image">
                     <div class="service-gallery">
-                        <img src="media/bricks_1.png" alt="<?php echo t('nav_materiali_edili'); ?> 1" class="gallery-thumb">
-                        <img src="media/bricks_2.png" alt="<?php echo t('nav_materiali_edili'); ?> 2" class="gallery-thumb">
-                        <img src="media/bricks_3.png" alt="<?php echo t('nav_materiali_edili'); ?> 3" class="gallery-thumb">
+                        <img src="media/foto-38.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 1" class="gallery-thumb">
+                        <img src="media/foto-39.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 2" class="gallery-thumb">
+                        <img src="media/foto-40.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 3" class="gallery-thumb">
                     </div>
                 </div>
                 <div class="service-features">

@@ -14,7 +14,7 @@
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="hero-bg">
-            <img src="media/FotoMeccaGroup 2025-11-08 at 18.49.01.jpeg" alt="<?php echo t('about_page_title'); ?>" class="hero-image">
+            <img src="media/foto-35.jpg" alt="<?php echo t('about_page_title'); ?>" class="hero-image">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -68,6 +68,10 @@
                         <img src="media/Alessiotubi-logo.png" alt="Alessio Tubi" loading="lazy">
                         <div class="partner-tooltip">Vai al loro sito web</div>
                     </a>
+                    <a href="https://www.arvedi.it" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Acciaieria Arvedi">
+                        <img src="media/logo-acciaieria-arvedi.png" alt="Acciaieria Arvedi" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
                     <!-- Duplicate for seamless loop -->
                     <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Marcegaglia">
                         <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
@@ -83,6 +87,10 @@
                     </a>
                     <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Alessio Tubi">
                         <img src="media/Alessiotubi-logo.png" alt="Alessio Tubi" loading="lazy">
+                        <div class="partner-tooltip">Vai al loro sito web</div>
+                    </a>
+                    <a href="https://www.arvedi.it" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Acciaieria Arvedi">
+                        <img src="media/logo-acciaieria-arvedi.png" alt="Acciaieria Arvedi" loading="lazy">
                         <div class="partner-tooltip">Vai al loro sito web</div>
                     </a>
                 </div>
