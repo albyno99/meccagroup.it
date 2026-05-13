@@ -50,9 +50,9 @@ ErrorDocument 500 /500.php
     #   - style:   self + Google Fonts (richiede 'unsafe-inline' per i pochi style="..." inline nelle pagine)
     #   - font:    self + fonts.gstatic.com + data: (per i font in base64)
     #   - img:     self + data: + qualsiasi https (loghi partner)
-    #   - frame:   solo Google (per iframe Maps in contact.php e widget reCAPTCHA)
+    #   - frame:   Google (iframe Maps in contact.php + widget reCAPTCHA) + Instagram (post embed in homepage)
     #   - connect: self + Google (per la verify reCAPTCHA dal client)
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://www.google.com; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://www.google.com https://www.instagram.com; connect-src 'self' https://www.google.com; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'"
 </IfModule>
 
 # ──────────────────────────────────────────────────────────────────────────
