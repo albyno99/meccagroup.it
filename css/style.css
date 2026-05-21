@@ -467,19 +467,6 @@ body {
     opacity: 1;
 }
 
-.hero-bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--lqip);
-    background-size: cover;
-    background-position: center 70%;
-    filter: blur(28px);
-    transform: scale(1.1);
-    z-index: 0;
-    pointer-events: none;
-}
-
 .hero-bg > picture {
     position: relative;
     z-index: 1;

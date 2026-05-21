@@ -13,7 +13,7 @@
 
     <!-- Hero Section -->
     <section class="page-hero">
-        <div class="hero-bg" style="--lqip:url('data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAADQBQCdASooABoAPxF+tVOsKCSiqqgBgCIJaACxH9XzcAmqUkkBAZy5ltYqvBvOZRDDJbQlvY6AAP1P1Is+Xlrw3K3VTZMSV5gHnzR9nlRCjDgalRfNqQZYH3tX6tPUyo2r9tU6Wzn9LiyjIZ6l3jmnLVqk3PFXI68575gVYTMqLAIHVX11A+I8/YFhKsid5swpXziD5b7QUbfGMrqK9s23RLwnL6ccXkPRajGyHMDYsUASX5swbE6t+Wd034XuMCXSd5W7iF0uscU6Pz1dvDqVaymfo8tbIxMwB107P4Wa8fIY4gwAAA==');">
+        <div class="hero-bg">
             <picture>
                 <source type="image/webp"
                         srcset="media/hero-services-640w.webp 640w, media/hero-services-1280w.webp 1280w, media/hero-services-1920w.webp 1920w"
