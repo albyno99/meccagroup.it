@@ -133,7 +133,7 @@
                              sizes="(min-width: 1024px) 50vw, 100vw"
                              alt="<?php echo t('nav_autotrasporti'); ?>"
                              class="service-main-image"
-                             width="961" height="1280"
+                             width="1280" height="960"
                              loading="lazy" decoding="async">
                     </picture>
                     <div class="service-gallery">
@@ -168,7 +168,7 @@
                              sizes="(min-width: 1024px) 50vw, 100vw"
                              alt="<?php echo t('nav_materiali_edili'); ?>"
                              class="service-main-image"
-                             width="1280" height="961"
+                             width="1280" height="960"
                              loading="lazy" decoding="async">
                     </picture>
                     <div class="service-gallery">

@@ -2186,9 +2186,14 @@ body {
 
 .service-main-image {
     width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
     margin-bottom: var(--spacing-4);
+    display: block;
 }
 
 .service-gallery {
@@ -2199,13 +2204,15 @@ body {
 
 .gallery-thumb {
     width: 100%;
-    aspect-ratio: 1;
+    height: auto;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: var(--radius-lg);
     opacity: 0.8;
     transition: all var(--transition-fast);
     cursor: pointer;
     border: 2px solid transparent;
+    display: block;
 }
 
 .gallery-thumb:hover {
