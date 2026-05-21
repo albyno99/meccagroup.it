@@ -460,13 +460,11 @@ body {
     object-fit: cover;
     object-position: center 70%;
     opacity: 0;
-    transform: scale(1.025);
-    transition: opacity .6s ease-out, transform 1.4s ease-out;
+    transition: opacity .6s ease-out;
 }
 
 .hero-image.loaded {
     opacity: 1;
-    transform: scale(1);
 }
 
 .hero-bg::before {
@@ -511,11 +509,10 @@ body {
 
 img.fade-on-load:not(.loaded) {
     opacity: 0;
-    transform: scale(1.012);
 }
 
 img.fade-on-load {
-    transition: opacity .45s ease-out, transform .45s ease-out;
+    transition: opacity .45s ease-out;
 }
 
 .hero-overlay {
@@ -1661,8 +1658,10 @@ img.fade-on-load {
 /* Partners Section */
 .partners-section {
     padding: var(--spacing-32) 0;
-    background: var(--gray-50);
+    background: var(--white);
     overflow: visible;
+    position: relative;
+    z-index: 1;
 }
 
 .partners-carousel {
