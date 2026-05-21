@@ -486,8 +486,14 @@ body {
 
 /* Le <picture> in altre sezioni (card servizi, founder, ecc.) restano block
    per evitare quirks inline e per far funzionare correttamente width:100%
-   sull'<img> dentro. */
-.service-image > picture,
+   sull'<img> dentro. La .service-image ha un'altezza fissa di 200px col
+   overflow:hidden e img height:100%, quindi anche la picture deve avere
+   height:100% per propagare il vincolo. */
+.service-image > picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .service-image-container > picture,
 .story-image > picture {
     display: block;
@@ -1645,7 +1651,12 @@ img.fade-on-load {
 /* Partners Section */
 .partners-section {
     padding: var(--spacing-32) 0;
-    background: var(--white);
+    background: linear-gradient(
+        135deg,
+        rgba(229, 62, 62, 0.8) 0%,
+        rgba(197, 48, 48, 0.6) 50%,
+        rgba(26, 32, 44, 0.4) 100%
+    );
     overflow: visible;
     position: relative;
     z-index: 1;
