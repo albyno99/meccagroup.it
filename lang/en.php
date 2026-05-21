@@ -84,6 +84,8 @@ return [
     'about_team_desc' => 'A group of dedicated professionals who work every day to offer the best possible service',
     'about_partners_title' => 'Our Partners',
     'about_partners_desc' => 'We collaborate with excellent partners to always guarantee the best materials and services',
+    'partner_tooltip_visit' => 'Visit their website',
+    'partner_tooltip_visit_of' => 'Visit the website of',
     'about_stat_experience' => 'Years of Experience',
     'about_stat_employees' => 'Employees',
     'about_stat_clients' => 'km² between headquarters and warehouse',

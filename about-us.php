@@ -52,46 +52,54 @@
             
             <div class="partners-carousel">
                 <div class="partners-track">
-                    <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Marcegaglia">
+                    <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Marcegaglia', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://ambrogiointermodal.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Ambrogio Intermodal">
+                    <a href="https://ambrogiointermodal.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Ambrogio Intermodal', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/ambrogio.png" alt="Ambrogio Intermodal" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://utilgroup.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Util Group">
+                    <a href="https://utilgroup.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Util Group', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/logo-util-grey-B.png" alt="Util Group" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Alessio Tubi">
+                    <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Alessio Tubi', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/Alessiotubi-logo.png" alt="Alessio Tubi" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://www.arvedi.it" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Acciaieria Arvedi">
+                    <a href="https://www.arvedi.it" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Acciaieria Arvedi', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/logo-acciaieria-arvedi.png" alt="Acciaieria Arvedi" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
+                    </a>
+                    <a href="https://www.isolpack.com/it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Isolpack', ENT_QUOTES, 'UTF-8'); ?>">
+                        <img src="media/isolpack_logo.png" alt="Isolpack" loading="lazy">
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
                     <!-- Duplicate for seamless loop -->
-                    <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Marcegaglia">
+                    <a href="https://www.marcegaglia.com/officialwebsite/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Marcegaglia', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/Marcegaglia-logo-partner-acciaio-steel.png" alt="Marcegaglia" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://ambrogiointermodal.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Ambrogio Intermodal">
+                    <a href="https://ambrogiointermodal.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Ambrogio Intermodal', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/ambrogio.png" alt="Ambrogio Intermodal" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://utilgroup.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Util Group">
+                    <a href="https://utilgroup.com/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Util Group', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/logo-util-grey-B.png" alt="Util Group" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Alessio Tubi">
+                    <a href="https://alessiotubi.amendunitubi.it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Alessio Tubi', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/Alessiotubi-logo.png" alt="Alessio Tubi" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
-                    <a href="https://www.arvedi.it" target="_blank" rel="noopener" class="partner-logo" data-tooltip="Vai al sito web di Acciaieria Arvedi">
+                    <a href="https://www.arvedi.it" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Acciaieria Arvedi', ENT_QUOTES, 'UTF-8'); ?>">
                         <img src="media/logo-acciaieria-arvedi.png" alt="Acciaieria Arvedi" loading="lazy">
-                        <div class="partner-tooltip">Vai al loro sito web</div>
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
+                    </a>
+                    <a href="https://www.isolpack.com/it/" target="_blank" rel="noopener" class="partner-logo" data-tooltip="<?php echo htmlspecialchars(t('partner_tooltip_visit_of') . ' Isolpack', ENT_QUOTES, 'UTF-8'); ?>">
+                        <img src="media/isolpack_logo.png" alt="Isolpack" loading="lazy">
+                        <div class="partner-tooltip"><?php echo t('partner_tooltip_visit'); ?></div>
                     </a>
                 </div>
             </div>

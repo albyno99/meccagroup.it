@@ -84,6 +84,8 @@ return [
     'about_team_desc' => 'Un gruppo di professionisti dedicati che lavorano ogni giorno per offrire il miglior servizio possibile',
     'about_partners_title' => 'I Nostri Collaboratori',
     'about_partners_desc' => 'Collaboriamo con partner di eccellenza per garantire sempre i migliori materiali e servizi',
+    'partner_tooltip_visit' => 'Vai al loro sito web',
+    'partner_tooltip_visit_of' => 'Vai al sito web di',
     'about_stat_experience' => 'Anni di Esperienza',
     'about_stat_employees' => 'Dipendenti',
     'about_stat_clients' => 'km² tra sede e magazzino',
