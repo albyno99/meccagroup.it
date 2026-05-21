@@ -14,7 +14,18 @@
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="hero-bg">
-            <img src="media/foto-35.jpg" alt="<?php echo t('about_page_title'); ?>" class="hero-image">
+            <picture>
+                <source type="image/webp"
+                        srcset="media/foto-35-640w.webp 640w, media/foto-35-1280w.webp 1280w, media/foto-35-1920w.webp 1920w"
+                        sizes="100vw">
+                <img src="media/foto-35-1280w.jpg"
+                     srcset="media/foto-35-640w.jpg 640w, media/foto-35-1280w.jpg 1280w, media/foto-35-1920w.jpg 1920w"
+                     sizes="100vw"
+                     alt="<?php echo t('about_page_title'); ?>"
+                     class="hero-image"
+                     width="1280" height="961"
+                     fetchpriority="high">
+            </picture>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -38,7 +49,18 @@
                     </div>
                 </div>
                 <div class="story-image">
-                    <img src="media/mecca_isidoro_copertina.png" alt="<?php echo t('about_story_title'); ?>" class="founder-image">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="media/founder-isidoro-640w.webp 640w, media/founder-isidoro-1280w.webp 1280w"
+                                sizes="(min-width: 1024px) 33vw, 100vw">
+                        <img src="media/founder-isidoro-1280w.jpg"
+                             srcset="media/founder-isidoro-640w.jpg 640w, media/founder-isidoro-1280w.jpg 1280w"
+                             sizes="(min-width: 1024px) 33vw, 100vw"
+                             alt="<?php echo t('about_story_title'); ?>"
+                             class="founder-image"
+                             width="1280" height="960"
+                             loading="lazy" decoding="async">
+                    </picture>
                 </div>
             </div>
         </div>

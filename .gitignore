@@ -6,3 +6,4 @@ CLAUDE.md
 /cache/rate-limit/*
 !/cache/rate-limit/.gitkeep
 !/cache/.htaccess
+/media/originals/

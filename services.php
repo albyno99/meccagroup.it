@@ -14,7 +14,18 @@
     <!-- Hero Section -->
     <section class="page-hero">
         <div class="hero-bg">
-            <img src="media/FotoMeccaGroup 2025-11-08 at 18.46.58.jpeg" alt="<?php echo t('services_page_title'); ?>" class="hero-image">
+            <picture>
+                <source type="image/webp"
+                        srcset="media/hero-services-640w.webp 640w, media/hero-services-1280w.webp 1280w, media/hero-services-1920w.webp 1920w"
+                        sizes="100vw">
+                <img src="media/hero-services-1280w.jpg"
+                     srcset="media/hero-services-640w.jpg 640w, media/hero-services-1280w.jpg 1280w, media/hero-services-1920w.jpg 1920w"
+                     sizes="100vw"
+                     alt="<?php echo t('services_page_title'); ?>"
+                     class="hero-image"
+                     width="1280" height="818"
+                     fetchpriority="high">
+            </picture>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -113,11 +124,22 @@
                     </div>
                 </div>
                 <div class="service-image-container">
-                    <img src="media/foto-21.jpg" alt="<?php echo t('nav_autotrasporti'); ?>" class="service-main-image">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="media/foto-21-640w.webp 640w, media/foto-21-1280w.webp 1280w"
+                                sizes="(min-width: 1024px) 50vw, 100vw">
+                        <img src="media/foto-21-1280w.jpg"
+                             srcset="media/foto-21-640w.jpg 640w, media/foto-21-1280w.jpg 1280w"
+                             sizes="(min-width: 1024px) 50vw, 100vw"
+                             alt="<?php echo t('nav_autotrasporti'); ?>"
+                             class="service-main-image"
+                             width="961" height="1280"
+                             loading="lazy" decoding="async">
+                    </picture>
                     <div class="service-gallery">
-                        <img src="media/foto-12.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 1" class="gallery-thumb">
-                        <img src="media/foto-4.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 2" class="gallery-thumb">
-                        <img src="media/foto-23.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 3" class="gallery-thumb">
+                        <img src="media/foto-12-640w.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 1" class="gallery-thumb" loading="lazy" decoding="async" width="512" height="640" data-large-jpg="media/foto-12-1280w.jpg" data-large-webp="media/foto-12-1280w.webp">
+                        <img src="media/foto-4-640w.jpg"  alt="<?php echo t('nav_autotrasporti'); ?> 2" class="gallery-thumb" loading="lazy" decoding="async" width="480" height="640" data-large-jpg="media/foto-4-1280w.jpg"  data-large-webp="media/foto-4-1280w.webp">
+                        <img src="media/foto-23-640w.jpg" alt="<?php echo t('nav_autotrasporti'); ?> 3" class="gallery-thumb" loading="lazy" decoding="async" width="640" height="512" data-large-jpg="media/foto-23-1280w.jpg" data-large-webp="media/foto-23-1280w.webp">
                     </div>
                 </div>
             </div>
@@ -137,11 +159,22 @@
 
             <div class="service-content-grid">
                 <div class="service-image-container">
-                    <img src="media/foto-41.jpg" alt="<?php echo t('nav_materiali_edili'); ?>" class="service-main-image">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="media/foto-41-640w.webp 640w, media/foto-41-1280w.webp 1280w"
+                                sizes="(min-width: 1024px) 50vw, 100vw">
+                        <img src="media/foto-41-1280w.jpg"
+                             srcset="media/foto-41-640w.jpg 640w, media/foto-41-1280w.jpg 1280w"
+                             sizes="(min-width: 1024px) 50vw, 100vw"
+                             alt="<?php echo t('nav_materiali_edili'); ?>"
+                             class="service-main-image"
+                             width="1280" height="961"
+                             loading="lazy" decoding="async">
+                    </picture>
                     <div class="service-gallery">
-                        <img src="media/foto-38.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 1" class="gallery-thumb">
-                        <img src="media/foto-39.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 2" class="gallery-thumb">
-                        <img src="media/foto-40.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 3" class="gallery-thumb">
+                        <img src="media/foto-38-640w.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 1" class="gallery-thumb" loading="lazy" decoding="async" width="640" height="480" data-large-jpg="media/foto-38-1280w.jpg" data-large-webp="media/foto-38-1280w.webp">
+                        <img src="media/foto-39-640w.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 2" class="gallery-thumb" loading="lazy" decoding="async" width="640" height="480" data-large-jpg="media/foto-39-1280w.jpg" data-large-webp="media/foto-39-1280w.webp">
+                        <img src="media/foto-40-640w.jpg" alt="<?php echo t('nav_materiali_edili'); ?> 3" class="gallery-thumb" loading="lazy" decoding="async" width="640" height="480" data-large-jpg="media/foto-40-1280w.jpg" data-large-webp="media/foto-40-1280w.webp">
                     </div>
                 </div>
                 <div class="service-features">

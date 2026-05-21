@@ -14,7 +14,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="media/foto-5.jpg" alt="Mecca Group Hero" class="hero-image">
+            <picture>
+                <source type="image/webp"
+                        srcset="media/foto-5-640w.webp 640w, media/foto-5-1280w.webp 1280w, media/foto-5-1920w.webp 1920w"
+                        sizes="100vw">
+                <img src="media/foto-5-1280w.jpg"
+                     srcset="media/foto-5-640w.jpg 640w, media/foto-5-1280w.jpg 1280w, media/foto-5-1920w.jpg 1920w"
+                     sizes="100vw"
+                     alt="Mecca Group Hero"
+                     class="hero-image"
+                     width="1280" height="961"
+                     fetchpriority="high">
+            </picture>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -48,7 +59,17 @@
                         <a href="<?php echo $lang->getPageUrl('services'); ?>#autotrasporti" class="service-link"><?php echo t('services_discover_more'); ?></a>
                     </div>
                     <div class="service-image">
-                        <img src="media/FotoMeccaGroup 2025-11-08 at 18.48.20.jpeg" alt="<?php echo t('nav_autotrasporti'); ?>">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="media/card-autotrasporti-640w.webp 640w, media/card-autotrasporti-1280w.webp 1280w"
+                                    sizes="(min-width: 1024px) 50vw, 100vw">
+                            <img src="media/card-autotrasporti-1280w.jpg"
+                                 srcset="media/card-autotrasporti-640w.jpg 640w, media/card-autotrasporti-1280w.jpg 1280w"
+                                 sizes="(min-width: 1024px) 50vw, 100vw"
+                                 alt="<?php echo t('nav_autotrasporti'); ?>"
+                                 width="1280" height="1011"
+                                 loading="lazy" decoding="async">
+                        </picture>
                     </div>
                 </div>
 
@@ -64,7 +85,17 @@
                         <a href="<?php echo $lang->getPageUrl('services'); ?>#materiali-edili" class="service-link"><?php echo t('services_discover_more'); ?></a>
                     </div>
                     <div class="service-image">
-                        <img src="media/Foto MeccaGroup 2026-04-29 at 09.38.46.jpeg" alt="<?php echo t('nav_materiali_edili'); ?>">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="media/card-edili-640w.webp 640w, media/card-edili-1280w.webp 1280w"
+                                    sizes="(min-width: 1024px) 50vw, 100vw">
+                            <img src="media/card-edili-1280w.jpg"
+                                 srcset="media/card-edili-640w.jpg 640w, media/card-edili-1280w.jpg 1280w"
+                                 sizes="(min-width: 1024px) 50vw, 100vw"
+                                 alt="<?php echo t('nav_materiali_edili'); ?>"
+                                 width="960" height="1280"
+                                 loading="lazy" decoding="async">
+                        </picture>
                     </div>
                 </div>
             </div>

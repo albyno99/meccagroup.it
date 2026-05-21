@@ -173,21 +173,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const thumbnails = gallery.querySelectorAll('.gallery-thumb');
         const mainImageContainer = gallery.closest('.service-image-container');
         const mainImage = mainImageContainer.querySelector('.service-main-image');
-        
+        const mainPicture = mainImage ? mainImage.closest('picture') : null;
+        const mainWebpSource = mainPicture ? mainPicture.querySelector('source[type="image/webp"]') : null;
+
         if (thumbnails.length > 0 && mainImage) {
             thumbnails.forEach((thumb, index) => {
                 thumb.addEventListener('click', function() {
                     // Remove active class from all thumbnails
                     thumbnails.forEach(t => t.classList.remove('active'));
-                    
+
                     // Add active class to clicked thumbnail
                     this.classList.add('active');
-                    
+
                     // Change main image with fade effect
                     mainImage.style.opacity = '0.3';
-                    
+
+                    const largeJpg  = this.dataset.largeJpg  || this.src;
+                    const largeWebp = this.dataset.largeWebp || '';
+
                     setTimeout(() => {
-                        mainImage.src = this.src;
+                        if (mainWebpSource && largeWebp) {
+                            mainWebpSource.srcset = largeWebp;
+                        }
+                        mainImage.removeAttribute('srcset');
+                        mainImage.src = largeJpg;
                         mainImage.alt = this.alt;
                         mainImage.style.opacity = '1';
                     }, 150);
