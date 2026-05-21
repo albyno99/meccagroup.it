@@ -445,12 +445,13 @@ body {
 }
 
 .hero-bg {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .hero-image {
@@ -1372,12 +1373,13 @@ img.fade-on-load {
 }
 
 .page-hero .hero-bg {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .page-hero .hero-image {
@@ -1463,8 +1465,14 @@ img.fade-on-load {
 
 .founder-image {
     width: 100%;
+    height: auto;
+    max-height: 420px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center top;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
+    display: block;
 }
 
 /* Values Section */
