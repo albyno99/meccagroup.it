@@ -13,7 +13,7 @@
 
     <!-- Hero Section -->
     <section class="page-hero">
-        <div class="hero-bg">
+        <div class="hero-bg" style="--lqip:url('data:image/webp;base64,UklGRmABAABXRUJQVlA4IFQBAAAQBwCdASooAB8APxF6tFIsJ6UiqqoBgCIJbAC+aTO5Q7FDFKIuOMAveQtV18u/NZ3KccAX+7EukxnyXotmMOsUAAD8/CEE/o9udsEDSr5y9ttIcfInrTNg82t/8/ofDqQgUEcQY8/39CmJuK4esydVHbVzzfrvQQoOuFuvo93f/74YgHchNDYtwljJE81+svSBY8idQg/hiVoZntDpBoNe0AMOOgIE/nt1UFLhY/HeGPdqHINg5j6/fVmnEultRO0d7/0flS/vg00BMzcjSAb9Ljt9YyTjMBrNpiII6tGTI9Qz5CIigM/t301qx/YYTyzxagWsyMXNb2KQMFZWSkAhcWRFMN8iAYHx0A4BQF+W0LUtfGbjBAIGziJXVyJy3bT8cGlbZVIZMDoXpyuNMnTJnKEdbNiqYm1eY/FXU5ag6CRzi+xtgckeir8s804todMeeIAA');">
             <picture>
                 <source type="image/webp"
                         srcset="media/foto-35-640w.webp 640w, media/foto-35-1280w.webp 1280w, media/foto-35-1920w.webp 1920w"
@@ -57,7 +57,7 @@
                              srcset="media/founder-isidoro-640w.jpg 640w, media/founder-isidoro-1280w.jpg 1280w"
                              sizes="(min-width: 1024px) 33vw, 100vw"
                              alt="<?php echo t('about_story_title'); ?>"
-                             class="founder-image"
+                             class="founder-image fade-on-load"
                              width="1280" height="960"
                              loading="lazy" decoding="async">
                     </picture>

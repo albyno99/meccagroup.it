@@ -1,3 +1,25 @@
+// Image fade-in: mark images as .loaded so CSS can transition them in.
+// Runs before DOMContentLoaded so it catches early-decoded images.
+(function () {
+    function markLoaded(img) {
+        if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('loaded');
+            return;
+        }
+        const onDone = () => img.classList.add('loaded');
+        img.addEventListener('load', onDone, { once: true });
+        img.addEventListener('error', onDone, { once: true });
+    }
+    function init() {
+        document.querySelectorAll('.hero-image, img.fade-on-load').forEach(markLoaded);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
 // Mobile Navigation
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');

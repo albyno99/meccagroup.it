@@ -13,7 +13,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg">
+        <div class="hero-bg" style="--lqip:url('data:image/webp;base64,UklGRigBAABXRUJQVlA4IBwBAAAQBwCdASooAB8APxF6sFEsKCSisBqoAYAiCWgAnTNEb1QL7Bo6zY5a/i7dasBSgmchgKVn+0aSk3lJuHc4HBkrgAD++xMoPJBobT6UBF69rffSivWXGSii8fPiIRydM7etg9ceW4CtQwp8/qEe0lagA0JjND47XI6QRKjSiVka68Hf7NkE7GPCOJf4P6DT/od1KtV1QeFNRR+5cgE1igrIYXP9/3wicgj6K0C8qu/BGynsSGrcq86NCDlymOAX2Fm+0+8EpG7WDa0ugfDYSDhvULJQ70ev6xT5yNR19GN4AbfehfyNSuR1b7tpRzJpIpiFP9tzF6fOdTPI3Z/wVXK7oV5DkTK23E2UHduzm/aqs+Xx9CtKmGf6fIAAAA==');">
             <picture>
                 <source type="image/webp"
                         srcset="media/foto-5-640w.webp 640w, media/foto-5-1280w.webp 1280w, media/foto-5-1920w.webp 1920w"
@@ -67,6 +67,7 @@
                                  srcset="media/card-autotrasporti-640w.jpg 640w, media/card-autotrasporti-1280w.jpg 1280w"
                                  sizes="(min-width: 1024px) 50vw, 100vw"
                                  alt="<?php echo t('nav_autotrasporti'); ?>"
+                                 class="fade-on-load"
                                  width="1280" height="1011"
                                  loading="lazy" decoding="async">
                         </picture>
@@ -93,6 +94,7 @@
                                  srcset="media/card-edili-640w.jpg 640w, media/card-edili-1280w.jpg 1280w"
                                  sizes="(min-width: 1024px) 50vw, 100vw"
                                  alt="<?php echo t('nav_materiali_edili'); ?>"
+                                 class="fade-on-load"
                                  width="960" height="1280"
                                  loading="lazy" decoding="async">
                         </picture>

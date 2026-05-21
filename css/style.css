@@ -458,6 +458,48 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center 70%;
+    opacity: 0;
+    transform: scale(1.025);
+    transition: opacity .6s ease-out, transform 1.4s ease-out;
+}
+
+.hero-image.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-bg {
+    background-color: #1a1a1a;
+}
+
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--lqip);
+    background-size: cover;
+    background-position: center 70%;
+    filter: blur(28px);
+    transform: scale(1.1);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-bg > picture {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+img.fade-on-load:not(.loaded) {
+    opacity: 0;
+    transform: scale(1.012);
+}
+
+img.fade-on-load {
+    transition: opacity .45s ease-out, transform .45s ease-out;
 }
 
 .hero-overlay {
